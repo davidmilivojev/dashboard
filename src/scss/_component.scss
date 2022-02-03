@@ -2,22 +2,34 @@ body {
 	margin: 0;
 	padding: 0;
 }
-p {
-	color: #000;
+.bar {
+	fill: steelblue;
 }
-[class*='icon-'] {
-	color: #06c;
-	font-size: 80px;
+.arc text {
+	font: 10px sans-serif;
+	text-anchor: middle;
 }
-.test {
-	color: green;
+.arc path {
+	stroke: #fff;
 }
-
-#test {
-	color: #f54d;
-	display: flex;
+.title {
+	fill: teal;
+	font-weight: bold;
 }
-
-h1 {
-	font-size: 60px;
+.highlight {
+	fill: orange;
+}
+.numb {
+	display: none;
+}
+svg {
+	overflow: visible;
+}
+[class*='p-title'] {
+	font-weight: 900;
+	font-size: 12px;
+}
+[class*='p-text']  {
+	font-weight: 700;
+	font-size: 10px;
 }
