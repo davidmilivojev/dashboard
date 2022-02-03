@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+p {
+	color: #000;
+}
+[class*='icon-'] {
+	color: #06c;
+	font-size: 80px;
+}
+.test {
+	color: green;
+}
+
+#test {
+	color: #f54d;
+	display: flex;
+}
+
+h1 {
+	font-size: 60px;
+}

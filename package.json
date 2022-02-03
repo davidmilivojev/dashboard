@@ -1,0 +1,21 @@
+{
+	"name": "fe-starter-davidm7",
+	"version": "1.0.0",
+	"description": "FE Starter by DavidM7",
+	"author": "David Milivojev",
+	"license": "ISC",
+	"devDependencies": {
+		"autoprefixer": "^10.1.0",
+		"browser-sync": "^2.26.13",
+		"gulp": "^4.0.2",
+		"gulp-consolidate": "^0.2.0",
+		"gulp-iconfont": "^10.0.3",
+		"gulp-postcss": "^9.0.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-sass-lint": "^1.4.0",
+		"gulp-stylelint": "^13.0.0",
+		"stylelint": "^13.13.1",
+		"postcss": "^8.2.0",
+		"underscore": "^1.13.1"
+	}
+}
