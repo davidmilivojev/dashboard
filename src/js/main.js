@@ -9,7 +9,7 @@ function joinPie() {
 
 
     function updateData() {
-        var svg = d3.select("#test1"),
+        var svg = d3.select("#pie1"),
         width = svg.attr("width"),
         height = svg.attr("height"),
         radius = Math.min(width, height) / 2;
@@ -108,7 +108,7 @@ function joinPie() {
         });
 
         svg.append("g")
-            .attr("transform", "translate(" + (width / 2 - 80) + "," + 10 + ")")
+            .attr("transform", "translate(" + (width / 2 - 80) + "," + -10 + ")")
             .append("text")
             .text("Sektori i Iznosi u RSD")
             .attr("class", "title")
