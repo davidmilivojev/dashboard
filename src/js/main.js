@@ -1,64 +1,82 @@
 function joinPie() {
-    var svg = d3.select("#test1"),
-    width = svg.attr("width"),
-    height = svg.attr("height"),
-    radius = Math.min(width, height) / 2;
+    d3.select("#year2019").on("change",updateData);
+    d3.select("#year2020").on("change",updateData);
+    d3.select("#year2021").on("change",updateData);
 
-var g = svg.append("g")
-           .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    updateData();
 
-var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+    function updateData() {
+        var svg = d3.select("#test1"),
+        width = svg.attr("width"),
+        height = svg.attr("height"),
+        radius = Math.min(width, height) / 2;
+        var valueIznos19 = 0;
+        var valueIznos20 = 0;
+        var valueIznos21 = 0;
 
-var pie = d3.pie().value(function(d) {
-    var valueIznos19 = d.Iznos2019.split('.').join("");
-    var valueIznos20 = d.Iznos2020.split('.').join("");
-    var valueIznos21 = d.Iznos2021.split('.').join("");
-    var sum = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
-        return sum;
-    });
 
-var path = d3.arc()
-             .outerRadius(radius - 10)
-             .innerRadius(0);
+        svg.selectAll("g").remove();
 
-var label = d3.arc()
-              .outerRadius(radius)
-              .innerRadius(radius - 80);
+        var g = svg.append("g")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-d3.csv("db3.csv", function(error, data) {
-    if (error) {
-        throw error;
-    }
+        var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
 
-    var arc = g.selectAll(".arc")
-               .data(pie(data))
-               .enter().append("g")
-               .attr("class", "arc");
+        var pie = d3.pie().value(function(d) {
+            if(d3.select("#year2019").property("checked")){
+                valueIznos19 = d.Iznos2019.split('.').join("");
+            }
+            if(d3.select("#year2020").property("checked")){
+                valueIznos20 = d.Iznos2020.split('.').join("");
+            }
+            if(d3.select("#year2021").property("checked")){
+                valueIznos21 = d.Iznos2021.split('.').join("");
+            }
 
-    arc.append("path")
-       .attr("d", path)
-       .attr("fill", function(d) { return color(d.data.Sektor); });
+            var sum = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
+                return sum;
+            });
 
-    arc.append("text")
-       .attr("transform", function(d) {
-                return "translate(" + label.centroid(d) + ")";
-        })
-       .text(function(d) {
-            var title = d.data.Sektor;
-            var valueIznos19 = d.data.Iznos2019.split('.').join("");
-            var valueIznos20 = d.data.Iznos2020.split('.').join("");
-            var valueIznos21 = d.data.Iznos2021.split('.').join("");
-            var price = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
-            var drawData = title + ' / ' + price
-                return drawData;
-        })
-    });
+        var path = d3.arc()
+                    .outerRadius(radius - 10)
+                    .innerRadius(0);
 
-    svg.append("g")
-       .attr("transform", "translate(" + (width / 2 - 80) + "," + 10 + ")")
-       .append("text")
-       .text("Sektori i Iznosi u RSD")
-       .attr("class", "title")
+        var label = d3.arc()
+                    .outerRadius(radius)
+                    .innerRadius(radius - 80);
+
+        d3.csv("db3.csv", function(error, data) {
+            if (error) {
+                throw error;
+            }
+
+            var arc = g.selectAll(".arc")
+                    .data(pie(data))
+                    .enter().append("g")
+                    .attr("class", "arc");
+
+            arc.append("path")
+            .attr("d", path)
+            .attr("fill", function(d) { return color(d.data.Sektor); });
+
+            arc.append("text")
+            .attr("transform", function(d) {
+                        return "translate(" + label.centroid(d) + ")";
+                })
+            .text(function(d) {
+                    var title = d.data.Sektor;
+                    var price = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
+                    var drawData = title + ' / ' + price
+                        return drawData;
+                })
+            });
+
+            svg.append("g")
+            .attr("transform", "translate(" + (width / 2 - 80) + "," + 10 + ")")
+            .append("text")
+            .text("Sektori i Iznosi u RSD")
+            .attr("class", "title")
+        }
 }
 
 joinPie();
