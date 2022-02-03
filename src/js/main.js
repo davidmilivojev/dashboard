@@ -1,7 +1,12 @@
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
+}
+
 function joinPie() {
     d3.selectAll(".cbx").on("change", updateData);
 
     updateData();
+
 
     function updateData() {
         var svg = d3.select("#test1"),
@@ -86,9 +91,8 @@ function joinPie() {
                 var arr = d.data.Iznos2019.split(" ");
 
                 for (i = 0; i < price.length; i++) {
-
                     d3.select(this).append("tspan")
-                        .text(price[i] + ' din')
+                        .text(numberWithCommas(price[i]) + ' din')
                         .attr("dy", i ? "1.2em" : "18px")
                         .attr("x", 0)
                         .attr("text-anchor", "middle")
