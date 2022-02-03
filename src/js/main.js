@@ -1,4 +1,3 @@
-console.log('test');
 function joinPie() {
     var svg = d3.select("#test1"),
     width = svg.attr("width"),
