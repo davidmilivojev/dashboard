@@ -1,7 +1,5 @@
 function joinPie() {
-    d3.select("#year2019").on("change",updateData);
-    d3.select("#year2020").on("change",updateData);
-    d3.select("#year2021").on("change",updateData);
+    d3.selectAll(".cbx").on("change", updateData);
 
     updateData();
 
