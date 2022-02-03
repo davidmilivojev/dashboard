@@ -15,9 +15,10 @@ function joinPie() {
         svg.selectAll("g").remove();
 
         var g = svg.append("g")
-                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-        var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+        var color = d3.scaleOrdinal()
+            .range(["#BBDEFB", "#90CAF9", "#64B5F6", "#42A5F5", "#2196F3", "#1E88E5", "#1976D2"]);
         var pie = d3.pie().value(function(d) {
             if(d3.select("#year2019").property("checked")){
                 valueIznos19 = d.Iznos2019.split('.').join("");
@@ -34,7 +35,7 @@ function joinPie() {
 
         var path = d3.arc()
                     .outerRadius(radius - 10)
-                    .innerRadius(0);
+                    .innerRadius(140);
 
         var label = d3.arc()
                     .outerRadius(radius)
@@ -58,12 +59,48 @@ function joinPie() {
             .attr("transform", function(d) {
                 return "translate(" + label.centroid(d) + ")";
             })
-            .text(function(d) {
-                var title = d.data.Sektor;
-                var price = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
-                var drawData = title + ' / ' + price
-                return drawData;
+            .each(function (d) {
+                var arr = d.data.Sektor.split(" ");
+                for (i = 0; i < arr.length; i++) {
+                    d3.select(this).append("tspan")
+                        .text(arr[i])
+                        .attr("dy", i ? "1.2em" : 0)
+                        .attr("x", 0)
+                        .attr("text-anchor", "middle")
+                        .attr("class", "p-title" + i);
+                }
             })
+            .each(function (d) {
+                if(d3.select("#year2019").property("checked")){
+                    valueIznos19 = d.data.Iznos2019.split('.').join("");
+                }
+                if(d3.select("#year2020").property("checked")){
+                    valueIznos20 = d.data.Iznos2020.split('.').join("");
+                }
+                if(d3.select("#year2021").property("checked")){
+                    valueIznos21 = d.data.Iznos2021.split('.').join("");
+                }
+                var priceNumb = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
+                var priceStr = priceNumb.toString();
+                var price = priceStr.split(" ");
+                var arr = d.data.Iznos2019.split(" ");
+
+                for (i = 0; i < price.length; i++) {
+
+                    d3.select(this).append("tspan")
+                        .text(price[i] + ' din')
+                        .attr("dy", i ? "1.2em" : "18px")
+                        .attr("x", 0)
+                        .attr("text-anchor", "middle")
+                        .attr("class", "p-text" + i);
+                }
+            })
+            // .text(function(d) {
+            //     var title = d.data.Sektor;
+            //     var price = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
+            //     var drawData = title + ' / ' + price
+            //     return drawData;
+            // })
         });
 
         svg.append("g")
