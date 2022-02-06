@@ -2,6 +2,8 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
 }
 
+var themeColors = ["#BBDEFB", "#90CAF9", "#64B5F6", "#42A5F5", "#2196F3", "#1E88E5", "#1976D2"];
+
 function joinPie() {
     d3.selectAll(".pie1 .cbx").on("change", updateData);
 
@@ -23,7 +25,7 @@ function joinPie() {
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
         var color = d3.scaleOrdinal()
-            .range(["#BBDEFB", "#90CAF9", "#64B5F6", "#42A5F5", "#2196F3", "#1E88E5", "#1976D2"]);
+            .range(themeColors);
         var pie = d3.pie().value(function(d) {
             if(d3.select("#year2019").property("checked")){
                 valueIznos19 = d.Iznos2019.split('.').join("");
@@ -135,7 +137,7 @@ function joinPie2() {
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
         var color = d3.scaleOrdinal()
-            .range(["#BBDEFB", "#90CAF9", "#64B5F6", "#42A5F5", "#2196F3", "#1E88E5", "#1976D2"]);
+            .range(themeColors);
         var pie = d3.pie().value(function(d) {
             if(d3.select("#xyear2019").property("checked")){
                 valueIznos19 = d.Iznos2019.split('.').join("");
@@ -235,6 +237,7 @@ function animatedBar() {
 
     var x = d3.scaleBand().range([0, width]).padding(0.4),
         y = d3.scaleLinear().range([height, 0]);
+    var color = d3.scaleOrdinal().range(themeColors);
 
     var g = svg.append("g")
             .attr("transform", "translate(" + 100 + "," + 100 + ")");
@@ -254,8 +257,8 @@ function animatedBar() {
          }))
          .append("text")
          .attr("y", height - 250)
-         .attr("x", width - 100)
-         .attr("text-anchor", "end")
+         .attr("x", width - 200)
+         .attr("text-anchor", "middle")
          .attr("stroke", "black")
          .text("Sektori");
 
@@ -286,6 +289,9 @@ function animatedBar() {
          .delay(function (d, i) {
              return i * 50;
          })
+         .style("fill", function(d, i) {
+            return color(i);
+         })
          .attr("height", function(d) { return height - y(d.value); });
     });
 
@@ -305,7 +311,7 @@ function animatedBar() {
              return x(d.year);
          })
          .attr('y', function() {
-             return y(d.value) - 15;
+             return y(d.value) - 20;
          })
          .text(function() {
              return [ d.value + " milijardi din."];
