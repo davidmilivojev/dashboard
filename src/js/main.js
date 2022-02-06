@@ -259,20 +259,9 @@ function animatedBar() {
          .attr("y", height - 250)
          .attr("x", width - 200)
          .attr("text-anchor", "middle")
-         .attr("stroke", "black")
+         .attr("font-size", "20px")
+         .attr("fill", "black")
          .text("Sektori");
-
-        // g.append("g")
-        //  .call(d3.axisLeft(y).tickFormat(function(d){
-        //      return "$" + d;
-        //  }).ticks(10))
-        //  .append("text")
-        //  .attr("transform", "rotate(-90)")
-        //  .attr("y", 6)
-        //  .attr("dy", "-5.1em")
-        //  .attr("text-anchor", "end")
-        //  .attr("stroke", "black")
-        //  .text("Budzet");
 
         g.selectAll(".bar")
          .data(data)
@@ -308,10 +297,10 @@ function animatedBar() {
         g.append("text")
          .attr('class', 'val')
          .attr('x', function() {
-             return x(d.year);
+             return x(d.year) - 20;
          })
          .attr('y', function() {
-             return y(d.value) - 20;
+             return y(d.value) - 25;
          })
          .text(function() {
              return [ d.value + " milijardi din."];
