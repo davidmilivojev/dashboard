@@ -351,26 +351,28 @@ function animatedBar() {
     }
 }
 
-function getData() {
-    var cbx = document.querySelectorAll('.cbxn');
-    var valueNum = document.querySelector('.value-num');
-    var dataItem = 0;
+
+function showData(db, selectItem) {
+    var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
+    var valueNum = document.querySelectorAll('.value-num')[idx];
     var sum = 0;
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            dataItem = data;
-            cbx.forEach((item, index) => {
-                item.setAttribute('data-val', dataItem[0].items[index].value);
-                if (!item.checked) {
-                    cbx[0].checked = true;
-                    var setValue = cbx[0].getAttribute('data-val');
-                    valueNum.innerHTML = `<span> ${setValue} <span>`;
-                    sum = +setValue;
-                }
-            });
-        });
-    cbx.forEach((item, index) => {
+    selectItem.forEach((item, index) => {
+        item.setAttribute('data-val', db[idx].items[index].value);
+        if (!item.checked) {
+            selectItem[0].checked = true;
+            var setValue = selectItem[0].getAttribute('data-val');
+            valueNum.innerHTML = `<span> ${setValue} </span>`;
+            sum = +setValue;
+        }
+    });
+}
+
+function toggleData(selectItem) {
+    var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
+    var valueNum = document.querySelectorAll('.value-num')[idx];
+    var currentSum = valueNum.querySelector('span').innerHTML;
+    var sum = +currentSum;
+    selectItem.forEach((item, index) => {
         item.addEventListener('click', () => {
             var dataVal = item.getAttribute('data-val');
             if (item.checked) {
@@ -378,9 +380,33 @@ function getData() {
             } else {
                 sum = sum - +dataVal;
             }
-            valueNum.innerHTML = `<span> ${sum} <span>`;
+            valueNum.innerHTML = `<span> ${sum} </span>`;
         });
     });
+}
+
+function getData() {
+    var cbxParent = document.querySelectorAll('.js-counter');
+    var cbx = cbxParent[0].querySelectorAll('.cbxn');
+    var cbx1 = cbxParent[1].querySelectorAll('.cbxn');
+    var cbx2 = cbxParent[2].querySelectorAll('.cbxn');
+    var dataItem = 0;
+
+    cbxParent.forEach((item, index) => {
+        item.setAttribute('data-index', index);
+    });
+
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            dataItem = data;
+            showData(dataItem, cbx);
+            showData(dataItem, cbx1);
+            showData(dataItem, cbx2);
+            toggleData(cbx);
+            toggleData(cbx1);
+            toggleData(cbx2);
+        });
 }
 
 getData();
