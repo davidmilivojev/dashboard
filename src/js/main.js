@@ -355,6 +355,8 @@ function animatedBar() {
 function showData(db, selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
     var valueNum = document.querySelectorAll('.js-value-num')[idx];
+    var title = document.querySelectorAll('.js-title')[idx];
+    title.innerHTML = db[idx].itemType;
     var sum = 0;
     selectItem.forEach((item, index) => {
         item.setAttribute('data-val', db[idx].items[index].value);
