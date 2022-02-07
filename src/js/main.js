@@ -354,7 +354,7 @@ function animatedBar() {
 
 function showData(db, selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
-    var valueNum = document.querySelectorAll('.value-num')[idx];
+    var valueNum = document.querySelectorAll('.js-value-num')[idx];
     var sum = 0;
     selectItem.forEach((item, index) => {
         item.setAttribute('data-val', db[idx].items[index].value);
@@ -369,7 +369,7 @@ function showData(db, selectItem) {
 
 function toggleData(selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
-    var valueNum = document.querySelectorAll('.value-num')[idx];
+    var valueNum = document.querySelectorAll('.js-value-num')[idx];
     var currentSum = valueNum.querySelector('span').innerHTML;
     var sum = +currentSum;
     selectItem.forEach((item, index) => {
@@ -387,9 +387,9 @@ function toggleData(selectItem) {
 
 function getData() {
     var cbxParent = document.querySelectorAll('.js-counter');
-    var cbx = cbxParent[0].querySelectorAll('.cbxn');
-    var cbx1 = cbxParent[1].querySelectorAll('.cbxn');
-    var cbx2 = cbxParent[2].querySelectorAll('.cbxn');
+    var cbx = cbxParent[0].querySelectorAll('.js-cbx');
+    var cbx1 = cbxParent[1].querySelectorAll('.js-cbx');
+    var cbx2 = cbxParent[2].querySelectorAll('.js-cbx');
     var dataItem = 0;
 
     cbxParent.forEach((item, index) => {
