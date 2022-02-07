@@ -153,14 +153,21 @@ function joinPie2() {
         var color = d3.scaleOrdinal()
             .range(themeColors);
         var pie = d3.pie().value(function(d) {
-            if(d3.select("#xyear2019").property("checked")){
+            var xy1checked = d3.select("#xyear2019").property("checked");
+            var xy2checked = d3.select("#xyear2020").property("checked");
+            var xy3checked = d3.select("#xyear2021").property("checked");
+            if(xy1checked) {
                 valueIznos19 = d.Iznos2019.split('.').join("");
             }
-            if(d3.select("#xyear2020").property("checked")){
+            if(xy2checked) {
                 valueIznos20 = d.Iznos2020.split('.').join("");
             }
-            if(d3.select("#xyear2021").property("checked")){
+            if(xy3checked) {
                 valueIznos21 = d.Iznos2021.split('.').join("");
+            }
+            if(!xy1checked && !xy2checked && !xy3checked) {
+                d3.select("#xyear2019").property('checked', true);
+                valueIznos19 = d.Iznos2019.split('.').join("");
             }
             var sum = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
             return sum;
@@ -204,19 +211,25 @@ function joinPie2() {
                 }
             })
             .each(function (d) {
-                if(d3.select("#xyear2019").property("checked")){
+                var xy1checked = d3.select("#xyear2019").property("checked");
+                var xy2checked = d3.select("#xyear2020").property("checked");
+                var xy3checked = d3.select("#xyear2021").property("checked");
+                if(xy1checked) {
                     valueIznos19 = d.data.Iznos2019.split('.').join("");
                 }
-                if(d3.select("#xyear2020").property("checked")){
+                if(xy2checked) {
                     valueIznos20 = d.data.Iznos2020.split('.').join("");
                 }
-                if(d3.select("#xyear2021").property("checked")){
+                if(xy3checked) {
                     valueIznos21 = d.data.Iznos2021.split('.').join("");
+                }
+                if(!xy1checked && !xy2checked && !xy3checked) {
+                    d3.select("#xyear2019").property('checked', true);
+                    valueIznos19 = d.data.Iznos2019.split('.').join("");
                 }
                 var priceNumb = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
                 var priceStr = priceNumb.toString();
                 var price = priceStr.split(" ");
-                var arr = d.data.Iznos2019.split(" ");
 
                 for (i = 0; i < price.length; i++) {
                     d3.select(this).append("tspan")
