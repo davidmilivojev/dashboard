@@ -47,3 +47,23 @@ label {
 	display: inline-block;
 	vertical-align: top;
 }
+
+// table>
+.customers {
+	border-collapse: collapse;
+	// width: 100%;
+	width: 600px;
+	th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #42A5F5;
+		color: white;
+	}
+	td,
+	th {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+}
+
