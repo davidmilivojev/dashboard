@@ -411,6 +411,68 @@ function getData() {
         });
 }
 
+function getTableData() {
+    fetch('konkursi.json')
+        .then(response => response.json())
+        .then(data => {
+        var dataRes = data.results;
+        var table = document.querySelector('.tbl');
+        for(var i = 0; i < dataRes.length; i++) {
+            var title = data.results[i].naziv;
+            var godina = data.results[i].godina;
+            var datum = data.results[i].datum;
+            var kr = data.results[i].konacno_resenje;
+            var mesto = data.results[i].mesto;
+            var miniznos = data.results[i].najmanji_iznos;
+            var maxiznos = data.results[i].najveci_iznos;
+            var napomene = data.results[i].napomene;
+            var objava = data.results[i].objava;
+            var ok = data.results[i].obustavljen_konkurs;
+            var organ = data.results[i].organ;
+            var pk = data.results[i].ponisten_konkurs;
+            var poziv = data.results[i].poziv;
+            var pr = data.results[i].preliminarno_resenje;
+            var sektor = data.results[i].sektor;
+            var tema = data.results[i].tema;
+            var tk = data.results[i].tip_konkursa;
+            table.innerHTML += `
+                <tr>
+                    <td>${title} </td>
+                    <td>${godina}</td>
+                    <td>${datum}</td>
+                    <td>${mesto}</td>
+                    <td>${kr}</td>
+                    <td>${miniznos}</td>
+                    <td>${maxiznos}</td>
+                    <td>${napomene}</td>
+                    <td>${objava}</td>
+                    <td>${ok}</td>
+                    <td>${organ}</td>
+                    <td>${pk}</td>
+                    <td>${poziv}</td>
+                    <td>${pr}</td>
+                    <td>${sektor}</td>
+                    <td>${tema}</td>
+                    <td>${tk}</td>
+                </tr>
+
+            `;
+        }
+
+    });
+    // var url = 'https://birn-baza.herokuapp.com/konkursi/?format=json';
+    // d3.json(url, function(data) {
+    //     console.log(data)
+    // });
+    // d3.json('konkursi.json', function(data) {
+    //     console.log(data)
+    // });
+    // d3.json('projekti.json', function(data2) {
+    //     console.log(data2)
+    // });
+}
+
+// getTableData();
 getData();
 joinPie();
 joinPie2();

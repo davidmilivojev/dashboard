@@ -67,3 +67,25 @@ label {
 	}
 }
 
+.tbl {
+	border-collapse: collapse;
+	// width: 100%;
+	width: 600px;
+	th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #42A5F5;
+		color: white;
+	}
+	td,
+	tr {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+}
+// .tbl-wrap {
+// 	max-width: 900px;
+// 	overflow: auto;
+// }
+
