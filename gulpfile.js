@@ -79,7 +79,7 @@ gulp.task('copy-assets', ()=> {
 });
 
 gulp.task('copy-db', ()=> {
-	return gulp.src('*.csv')
+	return gulp.src('src/data/*.csv')
 		.pipe(gulp.dest('dist'));
 });
 
