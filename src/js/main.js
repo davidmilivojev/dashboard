@@ -348,7 +348,7 @@ function getData() {
         .then(data => {
             dataItem = data;
             cbx.forEach((item, index) => {
-                item.setAttribute('data-val', dataItem[index].age);
+                item.setAttribute('data-val', dataItem[0].items[index].value);
                 if (!item.checked) {
                     cbx[0].checked = true;
                     var setValue = cbx[0].getAttribute('data-val');
