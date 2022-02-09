@@ -1,7 +1,4 @@
-body {
-	margin: 0;
-	padding: 0;
-}
+// temp
 h1 {
 	font-size: 60px;
 	text-align: center;
@@ -26,9 +23,6 @@ h1 {
 }
 .numb {
 	display: none;
-}
-svg {
-	overflow: visible;
 }
 [class*='p-title'] {
 	font-weight: 900;
@@ -66,8 +60,8 @@ label {
 		padding-top: 12px;
 		padding-bottom: 12px;
 		text-align: left;
-		background-color: #42A5F5;
-		color: white;
+		background-color: $mercury;
+		color: $black;
 	}
 	td,
 	th {
