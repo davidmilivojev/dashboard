@@ -392,6 +392,9 @@ function getData() {
     var cbx = cbxParent[0].querySelectorAll('.js-cbx');
     var cbx1 = cbxParent[1].querySelectorAll('.js-cbx');
     var cbx2 = cbxParent[2].querySelectorAll('.js-cbx');
+    var cbx3 = cbxParent[3].querySelectorAll('.js-cbx');
+    var cbx4 = cbxParent[4].querySelectorAll('.js-cbx');
+    var cbx5 = cbxParent[5].querySelectorAll('.js-cbx');
     var dataItem = 0;
 
     cbxParent.forEach((item, index) => {
@@ -405,9 +408,15 @@ function getData() {
             showData(dataItem, cbx);
             showData(dataItem, cbx1);
             showData(dataItem, cbx2);
+            showData(dataItem, cbx3);
+            showData(dataItem, cbx4);
+            showData(dataItem, cbx5);
             toggleData(cbx);
             toggleData(cbx1);
             toggleData(cbx2);
+            toggleData(cbx3);
+            toggleData(cbx4);
+            toggleData(cbx5);
         });
 }
 

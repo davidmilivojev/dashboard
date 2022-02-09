@@ -49,8 +49,17 @@ label {
 }
 
 // table>
+.table-fixed-header {
+	overflow-y: auto;
+	max-height: 300px;
+	th {
+		position: sticky;
+		top: 0;
+		left: 0;
+		transform: translateY(-1px);
+	}
+}
 .customers {
-	border-collapse: collapse;
 	// width: 100%;
 	width: 600px;
 	th {
@@ -68,7 +77,6 @@ label {
 }
 
 .tbl {
-	border-collapse: collapse;
 	// width: 100%;
 	width: 600px;
 	th {
@@ -88,4 +96,3 @@ label {
 // 	max-width: 900px;
 // 	overflow: auto;
 // }
-
