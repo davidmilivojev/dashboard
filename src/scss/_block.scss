@@ -1,0 +1,47 @@
+.block {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid $mercury;
+    //temp
+    margin: 5px;
+}
+.block__holder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.block__content {
+    padding: 0 10px;
+}
+.block__icon {
+    font-size: 34px;
+    color: $blumine;
+}
+.block__title {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    color: $mirage;
+}
+.block__value {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: $mirage;
+}
+.block__controls {
+    position: relative;
+}
+.block__item {
+    position: relative;
+}
+.block__checkbox {
+    position: relative;
+}
