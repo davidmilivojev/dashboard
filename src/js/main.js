@@ -3,7 +3,7 @@ function numberWithCommas(x) {
 }
 
 var themeColors = ["#C2DDF8", "#C3D1DE", "#78A2CC", "#6887A6", "#245A90", "#1E88E5", "#1976D2"];
-
+var radiusPie = 80;
 function joinPie() {
     d3.selectAll(".pie1 .cbx").on("change", updateData);
 
@@ -49,7 +49,7 @@ function joinPie() {
 
         var path = d3.arc()
                     .outerRadius(radius - 10)
-                    .innerRadius(140);
+                    .innerRadius(radiusPie);
 
         var label = d3.arc()
                     .outerRadius(radius)
@@ -65,11 +65,16 @@ function joinPie() {
             .enter().append("g")
             .attr("class", "arc");
 
+        var arc2 = g.selectAll(".arc2")
+            .data(pie(data))
+            .enter().append("g")
+            .attr("class", "arc2");
+
         arc.append("path")
             .attr("d", path)
             .attr("fill", function(d) { return color(d.data.Sektor); });
 
-        arc.append("text")
+        arc2.append("text")
             .attr("transform", function(d) {
                 return "translate(" + label.centroid(d) + ")";
             })
@@ -175,7 +180,7 @@ function joinPie2() {
 
         var path = d3.arc()
                     .outerRadius(radius - 10)
-                    .innerRadius(140);
+                    .innerRadius(radiusPie);
 
         var label = d3.arc()
                     .outerRadius(radius)
@@ -191,11 +196,16 @@ function joinPie2() {
             .enter().append("g")
             .attr("class", "arc");
 
+        var arc2 = g.selectAll(".arc2")
+            .data(pie(data))
+            .enter().append("g")
+            .attr("class", "arc2");
+
         arc.append("path")
             .attr("d", path)
             .attr("fill", function(d) { return color(d.data.Sektor); });
 
-        arc.append("text")
+        arc2.append("text")
             .attr("transform", function(d) {
                 return "translate(" + label.centroid(d) + ")";
             })
@@ -256,7 +266,7 @@ function animatedBar() {
         height = svg.attr("height") - margin;
 
     svg.append("text")
-       .attr("transform", "translate(100,0)")
+       .attr("transform", "translate(20,0)")
        .attr("x", 50)
        .attr("y", 50)
        .attr("font-size", "24px")
@@ -283,8 +293,8 @@ function animatedBar() {
             return d;
          }))
          .append("text")
-         .attr("y", height - 250)
-         .attr("x", width - 200)
+         .attr("y", height - 100)
+         .attr("x", width - 100)
          .attr("text-anchor", "middle")
          .attr("font-size", "20px")
          .attr("fill", "black")
