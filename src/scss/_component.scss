@@ -8,7 +8,7 @@
 }
 .title {
 	fill: $blumine;
-	font-weight: 700;
+	font-size: 22px;
 }
 .highlight {
 	fill: $mirage !important;
@@ -24,4 +24,14 @@
 label {
 	display: block;
 	margin-bottom: 5px;
+}
+.chart {
+	position: relative;
+}
+.chart__controls {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: flex-start;
+	padding-left: 40px;
 }
