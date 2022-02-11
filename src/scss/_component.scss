@@ -1,28 +1,17 @@
-// temp
-h1 {
-	font-size: 60px;
-	text-align: center;
-	font-weight: 700;
-}
 .bar {
-	fill: steelblue;
+	fill: $bermuda;
 }
-.arc text {
-	font: 10px sans-serif;
-	text-anchor: middle;
-}
-.arc path {
-	stroke: #fff;
+.arc {
+	path {
+		stroke: $white;
+	}
 }
 .title {
-	fill: teal;
-	font-weight: bold;
+	fill: $blumine;
+	font-weight: 700;
 }
 .highlight {
-	fill: #072842 !important;
-}
-.numb {
-	display: none;
+	fill: $mirage !important;
 }
 [class*='p-title'] {
 	font-weight: 900;
@@ -36,8 +25,3 @@ label {
 	display: block;
 	margin-bottom: 5px;
 }
-// .blocks {
-// 	border: 1px solid #000;
-// 	display: inline-block;
-// 	vertical-align: top;
-// }
