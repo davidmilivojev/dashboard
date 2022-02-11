@@ -120,19 +120,7 @@ function joinPie() {
                         .attr("class", "p-text" + i);
                 }
             })
-            // .text(function(d) {
-            //     var title = d.data.Sektor;
-            //     var price = (+valueIznos19) + (+valueIznos20) + (+valueIznos21);
-            //     var drawData = title + ' / ' + price
-            //     return drawData;
-            // })
         });
-
-        svg.append("g")
-            .attr("transform", "translate(" + (width / 2 - 80) + "," + -10 + ")")
-            .append("text")
-            .text("Potroseno po nivoima vlasti")
-            .attr("class", "title")
     }
 }
 function joinPie2() {
@@ -251,12 +239,6 @@ function joinPie2() {
                 }
             })
         });
-
-        svg.append("g")
-            .attr("transform", "translate(" + (width / 2 - 80) + "," + -10 + ")")
-            .append("text")
-            .text("Potroseno po projektima")
-            .attr("class", "title")
     }
 }
 function animatedBar() {
@@ -265,19 +247,12 @@ function animatedBar() {
         width = svg.attr("width") - margin,
         height = svg.attr("height") - margin;
 
-    svg.append("text")
-       .attr("transform", "translate(20,0)")
-       .attr("x", 50)
-       .attr("y", 50)
-       .attr("font-size", "24px")
-       .text("Potroseno po sektorima")
-
     var x = d3.scaleBand().range([0, width]).padding(0.4),
         y = d3.scaleLinear().range([height, 0]);
     var color = d3.scaleOrdinal().range(themeColors);
 
     var g = svg.append("g")
-            .attr("transform", "translate(" + 100 + "," + 100 + ")");
+            .attr("transform", "translate(" + 100 + "," + 80 + ")");
 
     d3.csv("bar.csv", function(error, data) {
         if (error) {
