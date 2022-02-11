@@ -1,0 +1,44 @@
+.tabs {
+    flex: 0 0 64px;
+    max-width: 64px;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.tabs__button {
+    width: 45px;
+    height: 45px;
+    align-self: center;
+    margin-bottom: 2px;
+    background-color: $athens;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+    &:hover {
+        background-color: #072842;
+        .tabs__icon {
+            color: $white;
+        }
+    }
+}
+.tabs__button--active {
+    background-color: $blumine;
+    .tabs__icon {
+        color: $white;
+    }
+}
+.tabs__icon {
+    font-size: 20px;
+    color: rgba($blumine, 0.5);
+    pointer-events: none;
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

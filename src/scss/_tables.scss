@@ -1,0 +1,47 @@
+// table>
+.table-fixed-header {
+	overflow-y: auto;
+	max-height: 300px;
+	th {
+		position: sticky;
+		top: 0;
+		left: 0;
+		transform: translateY(-1px);
+	}
+}
+.table-fixed-header__inner {
+	width: 100%;
+	th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: $mercury;
+		color: $black;
+	}
+	td,
+	th {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+}
+
+//dynamic table
+.tbl {
+	width: 100%;
+	th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #42A5F5;
+		color: white;
+	}
+	td,
+	tr {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+}
+.tbl-wrap {
+	max-height: 600px;
+	overflow: auto;
+}

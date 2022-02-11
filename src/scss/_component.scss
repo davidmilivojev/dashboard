@@ -36,60 +36,8 @@ label {
 	display: block;
 	margin-bottom: 5px;
 }
-.blocks {
-	border: 1px solid #000;
-	display: inline-block;
-	vertical-align: top;
-}
-.container {
-	margin: 0 auto;
-}
-
-// table>
-.table-fixed-header {
-	overflow-y: auto;
-	max-height: 300px;
-	th {
-		position: sticky;
-		top: 0;
-		left: 0;
-		transform: translateY(-1px);
-	}
-}
-.customers {
-	// width: 100%;
-	width: 600px;
-	th {
-		padding-top: 12px;
-		padding-bottom: 12px;
-		text-align: left;
-		background-color: $mercury;
-		color: $black;
-	}
-	td,
-	th {
-		border: 1px solid #ddd;
-		padding: 8px;
-	}
-}
-
-.tbl {
-	// width: 100%;
-	width: 600px;
-	th {
-		padding-top: 12px;
-		padding-bottom: 12px;
-		text-align: left;
-		background-color: #42A5F5;
-		color: white;
-	}
-	td,
-	tr {
-		border: 1px solid #ddd;
-		padding: 8px;
-	}
-}
-// .tbl-wrap {
-// 	max-width: 900px;
-// 	overflow: auto;
+// .blocks {
+// 	border: 1px solid #000;
+// 	display: inline-block;
+// 	vertical-align: top;
 // }

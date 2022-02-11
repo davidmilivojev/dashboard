@@ -491,7 +491,39 @@ function getTableData() {
     // });
 }
 
-// getTableData();
+function tabs() {
+    var tabItem = document.querySelectorAll('.js-tab');
+    var tabContents = document.querySelectorAll('.js-content');
+    var mainEl = document.querySelector('.js-main');
+    var activeTab = 'tabs__button--active';
+    var activeTabContent = 'container__content--active';
+
+    for (var i = 0; i < tabItem.length; i++) {
+        var tab = tabItem[i];
+        tab.addEventListener('click', switchClass);
+    }
+
+    function switchClass(e) {
+        for (var i = 0; i < tabItem.length; i++) {
+            var tab = tabItem[i];
+            tab.classList.remove(activeTab);
+            tabContents[i].classList.remove(activeTabContent);
+        }
+
+        var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(e.target)
+            e.target.classList.add(activeTab);
+            tabContents[index].classList.add(activeTabContent);
+
+        window.scroll({
+            behavior: 'smooth',
+            left: 0,
+            top: mainEl.offsetTop
+        });
+    }
+}
+
+getTableData();
+tabs();
 getData();
 joinPie();
 joinPie2();

@@ -7,9 +7,6 @@
     border-radius: 6px;
     overflow: hidden;
     border: 1px solid $mercury;
-    //temp
-    margin: 5px;
-    flex: 1;
 }
 .block__holder {
     display: flex;
@@ -17,7 +14,7 @@
     align-items: center;
 }
 .block__content {
-    padding: 0 10px;
+    padding: 0 8px;
 }
 .block__icon {
     font-size: 34px;

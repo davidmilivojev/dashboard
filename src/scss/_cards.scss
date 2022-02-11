@@ -1,0 +1,10 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.cards__col {
+    flex: 1 1 16.66%;
+    max-width: 16.66%;
+    padding: 5px;
+}
