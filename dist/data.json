@@ -1,0 +1,104 @@
+[
+    {
+        "itemType": "konkursa",
+        "items": [
+            {
+                "name": "Konkurs2019",
+                "value": 1000
+            },
+            {
+                "name": "Konkurs2020",
+                "value": 1637
+            },
+            {
+                "name": "Konkurs2021",
+                "value": 500
+            }
+        ]
+    },
+    {
+        "itemType": "institucija",
+        "items": [
+            {
+                "name": "institucija2019",
+                "value": 190
+            },
+            {
+                "name": "institucija2020",
+                "value": 80
+            },
+            {
+                "name": "institucija2021",
+                "value": 50
+            }
+        ]
+    },
+    {
+        "itemType": "sektora",
+        "items": [
+            {
+                "name": "sektor2019",
+                "value": 3122
+            },
+            {
+                "name": "sektor2020",
+                "value": 990
+            },
+            {
+                "name": "sektor2021",
+                "value": 1700
+            }
+        ]
+    },
+    {
+        "itemType": "dobitnika",
+        "items": [
+            {
+                "name": "dobitnika2019",
+                "value": 11070
+            },
+            {
+                "name": "dobitnika2020",
+                "value": 9000
+            },
+            {
+                "name": "dobitnika2021",
+                "value": 2450
+            }
+        ]
+    },
+    {
+        "itemType": "projekata",
+        "items": [
+            {
+                "name": "projekti2019",
+                "value": 33396
+            },
+            {
+                "name": "projekti2020",
+                "value": 20500
+            },
+            {
+                "name": "projekti2021",
+                "value": 17040
+            }
+        ]
+    },
+    {
+        "itemType": "budzet",
+        "items": [
+            {
+                "name": "budzet2019",
+                "value": 14.7
+            },
+            {
+                "name": "budzet2020",
+                "value": 5
+            },
+            {
+                "name": "budzet2021",
+                "value": 11
+            }
+        ]
+    }
+]
