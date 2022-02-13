@@ -1,5 +1,5 @@
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 var themeColors = ["#C2DDF8", "#C3D1DE", "#78A2CC", "#6887A6", "#245A90", "#1E88E5", "#1976D2"];
