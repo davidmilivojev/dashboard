@@ -243,16 +243,15 @@ function joinPie2() {
 }
 function animatedBar() {
     var svg = d3.select("#bar"),
-        margin = 200,
-        width = svg.attr("width") - margin,
-        height = svg.attr("height") - margin;
+        width = svg.attr("width") - 60,
+        height = svg.attr("height") - 160;
 
-    var x = d3.scaleBand().range([0, width]).padding(0.4),
+    var x = d3.scaleBand().range([0, width]).padding(0.6),
         y = d3.scaleLinear().range([height, 0]);
     var color = d3.scaleOrdinal().range(themeColors);
 
     var g = svg.append("g")
-            .attr("transform", "translate(" + 100 + "," + 80 + ")");
+            .attr("transform", "translate(" + 28 + "," + 80 + ")");
 
     d3.csv("bar.csv", function(error, data) {
         if (error) {
@@ -266,14 +265,7 @@ function animatedBar() {
          .attr("transform", "translate(0," + height + ")")
          .call(d3.axisBottom(x).tickFormat(function(d){
             return d;
-         }))
-         .append("text")
-         .attr("y", height - 100)
-         .attr("x", width - 100)
-         .attr("text-anchor", "middle")
-         .attr("font-size", "20px")
-         .attr("fill", "black")
-         .text("Sektori");
+        }))
 
         g.selectAll(".bar")
          .data(data)

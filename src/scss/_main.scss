@@ -12,6 +12,9 @@
     width: 100%;
     min-height: 600px;
     display: flex;
+    @include breakpoint(phone) {
+        display: block;
+    }
 }
 .container__content {
 	position: relative;
@@ -23,6 +26,10 @@
 .container__inner {
     flex: 1 1 calc(100% - 64px);
     max-width: calc(100% - 64px);
+    @include breakpoint(phone) {
+        flex: none;
+        max-width: 100%;
+    }
 }
 .content {
     display: block;

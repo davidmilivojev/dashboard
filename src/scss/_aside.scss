@@ -5,6 +5,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include breakpoint(phone) {
+        flex: none;
+        max-width: 100%;
+        flex-direction: row;
+        border-right: 0;
+        border-bottom: 1px solid #ccc;
+    }
 
 }
 .tabs__button {
@@ -23,6 +30,9 @@
         .tabs__icon {
             color: $white;
         }
+    }
+    @include breakpoint(phone) {
+        margin: 10px;
     }
 }
 .tabs__button--active {
