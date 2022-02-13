@@ -403,6 +403,27 @@ function getTableData() {
         .then(data => {
         var dataRes = data.results;
         var table = document.querySelector('.tbl');
+        table.innerHTML += `
+            <tr>
+                <th>Naslov</th>
+                <th>godina</th>
+                <th>datum</th>
+                <th>mesto</th>
+                <th>konacno resenje</th>
+                <th>najmani iznos</th>
+                <th>najveci iznos</th>
+                <th>napomene</th>
+                <th>objava</th>
+                <th>obustavljeni konkursi</th>
+                <th>organ</th>
+                <th>ponisteni konkursi</th>
+                <th>poziv</th>
+                <th>preliminarno resenje</th>
+                <th>sektor</th>
+                <th>tema</th>
+                <th>tip konkursa</th>
+            </tr>
+        `;
         for(var i = 0; i < dataRes.length; i++) {
             var title = data.results[i].naziv;
             var godina = data.results[i].godina;

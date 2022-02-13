@@ -33,11 +33,13 @@
 .tbl {
 	width: 100%;
 	th {
-		padding-top: 12px;
-		padding-bottom: 12px;
 		text-align: left;
-		background-color: #42A5F5;
+		background-color: $bermuda;
 		color: white;
+		padding: 12px 8px;
+		text-transform: capitalize;
+		font-size: 16px;
+		line-height: 20px;
 	}
 	td,
 	tr {
