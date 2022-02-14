@@ -123,6 +123,7 @@ function joinPie() {
         });
     }
 }
+
 function joinPie2() {
     d3.selectAll(".pie2 .cbx").on("change", updateData);
 
@@ -241,6 +242,7 @@ function joinPie2() {
         });
     }
 }
+
 function animatedBar() {
     var svg = d3.select("#bar"),
         width = svg.attr("width") - 60,
@@ -252,6 +254,8 @@ function animatedBar() {
 
     var g = svg.append("g")
             .attr("transform", "translate(" + 28 + "," + 80 + ")");
+    // symbolTriangle
+    var sym = d3.symbol().type(d3.symbolTriangle).size(200);
 
     d3.csv("bar.csv", function(error, data) {
         if (error) {
@@ -298,17 +302,41 @@ function animatedBar() {
           .attr("y", function(d) { return y(d.value) - 10; })
           .attr("height", function(d) { return height - y(d.value) + 10; });
 
-        g.append("text")
+          g.append("rect")
+          .attr('class', 'val')
+          .attr('x', function() {
+              var xWidth = (x(d.year) - 55);
+              return xWidth;
+          })
+          .attr('y', function() {
+              return y(d.value) - 65;
+          })
+          .attr('rx', 5)
+          .attr('width', 140)
+          .attr("height", 40)
+          .attr('fill', '#E9E9E9')
+
+          g.select('g')
+          .append("path")
+          .attr("d", sym)
+          .attr("fill", "#E9E9E9")
+          .attr('class', 'val')
+          .attr('transform', function() {
+              var xWidth = x(d.year) + 16;
+              var xHeight = (height - y(d.value) + 20)*(-1);
+              return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
+          })
+
+          g.append("text")
          .attr('class', 'val')
          .attr('x', function() {
-             return x(d.year) - 20;
+             return x(d.year) - 30;
          })
          .attr('y', function() {
-             return y(d.value) - 25;
+             return y(d.value) - 40;
          })
          .text(function() {
              return [ d.value + " milijardi din."];
-              // Value of the text
          });
     }
 
@@ -327,7 +355,6 @@ function animatedBar() {
           .remove()
     }
 }
-
 
 function showData(db, selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
