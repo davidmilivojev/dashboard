@@ -581,8 +581,9 @@ function getMap() {
         .attr("d", path)
         .style("stroke", "#fff")
         .on("mouseover", function(d) {
+            var title = d.properties.name + ': ' + d.properties.money + 'din.';
             d3.select(".stat")
-            .text(d.properties.name);
+            .text(title);
         });
 
 	svg.selectAll(".subunit-label")
