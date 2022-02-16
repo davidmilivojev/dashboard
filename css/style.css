@@ -61,8 +61,8 @@ iconfont Webfont
 */
 @font-face {
   font-family: 'iconfont';
-  src: url("../fonts/iconfont.eot?1645017502651");
-  src: url("../fonts/iconfont.eot?#iefix-1645017502651") format("embedded-opentype"), url("../fonts/iconfont.woff2?1645017502651") format("woff2"), url("../fonts/iconfont.woff?1645017502651") format("woff"), url("../fonts/iconfont.ttf?1645017502651") format("truetype");
+  src: url("../fonts/iconfont.eot?1621278525779");
+  src: url("../fonts/iconfont.eot?#iefix-1621278525779") format("embedded-opentype"), url("../fonts/iconfont.woff2?1621278525779") format("woff2"), url("../fonts/iconfont.woff?1621278525779") format("woff"), url("../fonts/iconfont.ttf?1621278525779") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -85,34 +85,34 @@ iconfont Webfont
 /*
 Glyphs list
 */
-.icon-bar::before {
+.icon-airport::before {
   content: '\ea01'; }
 
-.icon-budget::before {
+.icon-bicycle::before {
   content: '\ea02'; }
 
-.icon-dashboard::before {
+.icon-car::before {
   content: '\ea03'; }
 
-.icon-download::before {
+.icon-dog-park::before {
   content: '\ea04'; }
 
-.icon-filter::before {
+.icon-ferry::before {
   content: '\ea05'; }
 
-.icon-house::before {
+.icon-park::before {
   content: '\ea06'; }
 
-.icon-medal::before {
+.icon-restaurant::before {
   content: '\ea07'; }
 
-.icon-project::before {
+.icon-rocket::before {
   content: '\ea08'; }
 
-.icon-sector::before {
+.icon-toilets::before {
   content: '\ea09'; }
 
-.icon-table::before {
+.icon-zoo::before {
   content: '\ea0a'; }
 
 .bar {
@@ -143,6 +143,27 @@ Glyphs list
 [class*='p-text'] {
   font-weight: 900;
   font-size: 14px; }
+
+#map path {
+  fill: #ccc; }
+
+#map .q0-9 {
+  fill: #C3D1DE; }
+
+#map .q1-9 {
+  fill: #C2DDF8; }
+
+#map .q2-9 {
+  fill: #78A2CC; }
+
+#map .q3-9 {
+  fill: #A1C1DF; }
+
+#map .q4-9 {
+  fill: #5da9f1; }
+
+#map .q5-9 {
+  fill: #6887A6; }
 
 label {
   display: block;
