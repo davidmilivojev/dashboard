@@ -31,6 +31,18 @@
 	font-weight: 900;
 	font-size: 14px;
 }
+#map {
+	path {
+		fill: #ccc;
+	}
+	.q0-9 { fill: #C3D1DE; }
+	.q1-9 { fill: #C2DDF8; }
+	.q2-9 { fill: #78A2CC; }
+	.q3-9 { fill: #A1C1DF; }
+	.q4-9 { fill: #5da9f1; }
+	.q5-9 { fill: #6887A6; }
+}
+
 label {
 	display: block;
 	margin-bottom: 5px;
