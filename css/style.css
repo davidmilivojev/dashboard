@@ -61,8 +61,8 @@ iconfont Webfont
 */
 @font-face {
   font-family: 'iconfont';
-  src: url("../fonts/iconfont.eot?1621278525779");
-  src: url("../fonts/iconfont.eot?#iefix-1621278525779") format("embedded-opentype"), url("../fonts/iconfont.woff2?1621278525779") format("woff2"), url("../fonts/iconfont.woff?1621278525779") format("woff"), url("../fonts/iconfont.ttf?1621278525779") format("truetype");
+  src: url("../fonts/iconfont.eot?1645054245016");
+  src: url("../fonts/iconfont.eot?#iefix-1645054245016") format("embedded-opentype"), url("../fonts/iconfont.woff2?1645054245016") format("woff2"), url("../fonts/iconfont.woff?1645054245016") format("woff"), url("../fonts/iconfont.ttf?1645054245016") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -85,34 +85,34 @@ iconfont Webfont
 /*
 Glyphs list
 */
-.icon-airport::before {
+.icon-bar::before {
   content: '\ea01'; }
 
-.icon-bicycle::before {
+.icon-budget::before {
   content: '\ea02'; }
 
-.icon-car::before {
+.icon-dashboard::before {
   content: '\ea03'; }
 
-.icon-dog-park::before {
+.icon-download::before {
   content: '\ea04'; }
 
-.icon-ferry::before {
+.icon-filter::before {
   content: '\ea05'; }
 
-.icon-park::before {
+.icon-house::before {
   content: '\ea06'; }
 
-.icon-restaurant::before {
+.icon-medal::before {
   content: '\ea07'; }
 
-.icon-rocket::before {
+.icon-project::before {
   content: '\ea08'; }
 
-.icon-toilets::before {
+.icon-sector::before {
   content: '\ea09'; }
 
-.icon-zoo::before {
+.icon-table::before {
   content: '\ea0a'; }
 
 .bar {
