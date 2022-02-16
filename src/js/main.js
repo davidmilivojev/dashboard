@@ -360,10 +360,11 @@ function showData(db, selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
     var valueNum = document.querySelectorAll('.js-value-num')[idx];
     var title = document.querySelectorAll('.js-title')[idx];
-    title.innerHTML = db[idx].itemType;
+    title.innerHTML = db[idx].naziv;
     var sum = 0;
     selectItem.forEach((item, index) => {
-        item.setAttribute('data-val', db[idx].items[index].value);
+        var indexStart = index + 1;
+        item.setAttribute('data-val', Object.values(db[idx])[indexStart]);
         if (!item.checked) {
             selectItem[0].checked = true;
             var setValue = selectItem[0].getAttribute('data-val');
@@ -405,10 +406,11 @@ function getData() {
         item.setAttribute('data-index', index);
     });
 
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            dataItem = data;
+    Papa.parse('cards.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            dataItem = results.data;
             showData(dataItem, cbx);
             showData(dataItem, cbx1);
             showData(dataItem, cbx2);
@@ -421,7 +423,8 @@ function getData() {
             toggleData(cbx3);
             toggleData(cbx4);
             toggleData(cbx5);
-        });
+        }
+    });
 }
 
 function getTableData() {
