@@ -540,6 +540,37 @@ function tabs() {
     }
 }
 
+function getMap() {
+    // The svg
+    var svg = d3.select("#map"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height");
+
+    // Map and projection
+    var projection = d3.geoAlbers()
+	.center([0, 44])
+	.rotate([-21, 0])
+	.parallels([40, 50])
+	.scale(5000)
+	.translate([width / 2, height / 2]);
+
+    // Load external data and boot
+    d3.json("map.geojson", function(data){
+
+        // Draw the map
+        svg.append("g")
+            .selectAll("path")
+            .data(data.features)
+            .enter().append("path")
+                .attr("fill", "#6887A6")
+                .attr("d", d3.geoPath()
+                    .projection(projection)
+                )
+                .style("stroke", "#fff")
+    })
+}
+
+getMap();
 getTableData();
 tabs();
 getData();
