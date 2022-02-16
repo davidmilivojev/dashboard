@@ -16,3 +16,53 @@
         max-width: 100%;
     }
 }
+.cards--basic {
+    .cards__col {
+        flex: 1 1 25%;
+        max-width: 25%;
+    }
+    .block,
+    .block__holder,
+    .block__content {
+        display: block;
+        padding: 0;
+    }
+    .block__title {
+        padding: 20px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 700;
+        color: $blumine;
+        background-color: $athens;
+        transition: 0.6s ease;
+        &:hover {
+            background-color: $blumine;
+            color: $white;
+            .icon-table {
+                color: $white;
+            }
+        }
+    }
+    .icon-table {
+        transition: 0.6s ease;
+        margin-right: 5px;
+        &::before {
+            font-size: 26px;
+        }
+    }
+    @include breakpoint(tablet) {
+        .block__content {
+            text-align: left;
+        }
+        .cards__col {
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+    }
+    @include breakpoint(phone) {
+        .cards__col {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+}
