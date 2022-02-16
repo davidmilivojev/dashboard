@@ -5,6 +5,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include breakpoint(phone) {
+        flex: none;
+        max-width: 100%;
+        flex-direction: row;
+        border-right: 0;
+        border-bottom: 1px solid #ccc;
+    }
 
 }
 .tabs__button {
@@ -18,11 +25,15 @@
     cursor: pointer;
     border-radius: 4px;
     position: relative;
+    transition: 0.6s ease;
     &:hover {
         background-color: #072842;
         .tabs__icon {
             color: $white;
         }
+    }
+    @include breakpoint(phone) {
+        margin: 10px;
     }
 }
 .tabs__button--active {
@@ -35,6 +46,7 @@
     font-size: 20px;
     color: rgba($blumine, 0.5);
     pointer-events: none;
+    transition: 0.6s ease;
     &::before {
         position: absolute;
         top: 50%;

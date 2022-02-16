@@ -123,6 +123,7 @@ function joinPie() {
         });
     }
 }
+
 function joinPie2() {
     d3.selectAll(".pie2 .cbx").on("change", updateData);
 
@@ -241,18 +242,20 @@ function joinPie2() {
         });
     }
 }
+
 function animatedBar() {
     var svg = d3.select("#bar"),
-        margin = 200,
-        width = svg.attr("width") - margin,
-        height = svg.attr("height") - margin;
+        width = svg.attr("width") - 60,
+        height = svg.attr("height") - 160;
 
-    var x = d3.scaleBand().range([0, width]).padding(0.4),
+    var x = d3.scaleBand().range([0, width]).padding(0.6),
         y = d3.scaleLinear().range([height, 0]);
     var color = d3.scaleOrdinal().range(themeColors);
 
     var g = svg.append("g")
-            .attr("transform", "translate(" + 100 + "," + 80 + ")");
+            .attr("transform", "translate(" + 28 + "," + 80 + ")");
+    // symbolTriangle
+    var sym = d3.symbol().type(d3.symbolTriangle).size(200);
 
     d3.csv("bar.csv", function(error, data) {
         if (error) {
@@ -266,14 +269,7 @@ function animatedBar() {
          .attr("transform", "translate(0," + height + ")")
          .call(d3.axisBottom(x).tickFormat(function(d){
             return d;
-         }))
-         .append("text")
-         .attr("y", height - 100)
-         .attr("x", width - 100)
-         .attr("text-anchor", "middle")
-         .attr("font-size", "20px")
-         .attr("fill", "black")
-         .text("Sektori");
+        }))
 
         g.selectAll(".bar")
          .data(data)
@@ -306,17 +302,41 @@ function animatedBar() {
           .attr("y", function(d) { return y(d.value) - 10; })
           .attr("height", function(d) { return height - y(d.value) + 10; });
 
-        g.append("text")
+          g.append("rect")
+          .attr('class', 'val')
+          .attr('x', function() {
+              var xWidth = (x(d.year) - 55);
+              return xWidth;
+          })
+          .attr('y', function() {
+              return y(d.value) - 65;
+          })
+          .attr('rx', 5)
+          .attr('width', 140)
+          .attr("height", 40)
+          .attr('fill', '#E9E9E9')
+
+          g.select('g')
+          .append("path")
+          .attr("d", sym)
+          .attr("fill", "#E9E9E9")
+          .attr('class', 'val')
+          .attr('transform', function() {
+              var xWidth = x(d.year) + 16;
+              var xHeight = (height - y(d.value) + 20)*(-1);
+              return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
+          })
+
+          g.append("text")
          .attr('class', 'val')
          .attr('x', function() {
-             return x(d.year) - 20;
+             return x(d.year) - 30;
          })
          .attr('y', function() {
-             return y(d.value) - 25;
+             return y(d.value) - 40;
          })
          .text(function() {
              return [ d.value + " milijardi din."];
-              // Value of the text
          });
     }
 
@@ -336,15 +356,15 @@ function animatedBar() {
     }
 }
 
-
 function showData(db, selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
     var valueNum = document.querySelectorAll('.js-value-num')[idx];
     var title = document.querySelectorAll('.js-title')[idx];
-    title.innerHTML = db[idx].itemType;
+    title.innerHTML = db[idx].naziv;
     var sum = 0;
     selectItem.forEach((item, index) => {
-        item.setAttribute('data-val', db[idx].items[index].value);
+        var indexStart = index + 1;
+        item.setAttribute('data-val', Object.values(db[idx])[indexStart]);
         if (!item.checked) {
             selectItem[0].checked = true;
             var setValue = selectItem[0].getAttribute('data-val');
@@ -386,10 +406,11 @@ function getData() {
         item.setAttribute('data-index', index);
     });
 
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            dataItem = data;
+    Papa.parse('cards.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            dataItem = results.data;
             showData(dataItem, cbx);
             showData(dataItem, cbx1);
             showData(dataItem, cbx2);
@@ -402,7 +423,8 @@ function getData() {
             toggleData(cbx3);
             toggleData(cbx4);
             toggleData(cbx5);
-        });
+        }
+    });
 }
 
 function getTableData() {
@@ -411,6 +433,27 @@ function getTableData() {
         .then(data => {
         var dataRes = data.results;
         var table = document.querySelector('.tbl');
+        table.innerHTML += `
+            <tr>
+                <th>Naslov</th>
+                <th>godina</th>
+                <th>datum</th>
+                <th>mesto</th>
+                <th>konacno resenje</th>
+                <th>najmani iznos</th>
+                <th>najveci iznos</th>
+                <th>napomene</th>
+                <th>objava</th>
+                <th>obustavljeni konkursi</th>
+                <th>organ</th>
+                <th>ponisteni konkursi</th>
+                <th>poziv</th>
+                <th>preliminarno resenje</th>
+                <th>sektor</th>
+                <th>tema</th>
+                <th>tip konkursa</th>
+            </tr>
+        `;
         for(var i = 0; i < dataRes.length; i++) {
             var title = data.results[i].naziv;
             var godina = data.results[i].godina;

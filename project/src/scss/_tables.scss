@@ -2,11 +2,16 @@
 .table-fixed-header {
 	overflow-y: auto;
 	max-height: 300px;
+	border: 1px solid $mercury;
+	border-radius: 5px;
 	th {
 		position: sticky;
 		top: 0;
 		left: 0;
 		transform: translateY(-1px);
+	}
+	tr {
+		border-bottom: 1px solid $mercury;
 	}
 }
 .table-fixed-header__inner {
@@ -20,7 +25,6 @@
 	}
 	td,
 	th {
-		border: 1px solid #ddd;
 		padding: 8px;
 	}
 }
@@ -29,11 +33,13 @@
 .tbl {
 	width: 100%;
 	th {
-		padding-top: 12px;
-		padding-bottom: 12px;
 		text-align: left;
-		background-color: #42A5F5;
+		background-color: $bermuda;
 		color: white;
+		padding: 12px 8px;
+		text-transform: capitalize;
+		font-size: 16px;
+		line-height: 20px;
 	}
 	td,
 	tr {
