@@ -4,6 +4,7 @@ function numberWithCommas(x) {
 
 var themeColors = ["#C2DDF8", "#C3D1DE", "#78A2CC", "#6887A6", "#245A90", "#1E88E5", "#1976D2"];
 var radiusPie = 80;
+
 function joinPie() {
     d3.selectAll(".pie1 .cbx").on("change", updateData);
 
@@ -569,6 +570,13 @@ function getMap() {
         .attr("dy","2em")
         .classed("stat", true);
 
+    svg.append("text")
+        .text("")
+        .attr("dx","15em")
+        .attr("dy","3.5em")
+        .attr("font-weight","bold")
+        .classed("statValue", true);
+
 	d3.json("map.geojson", function(error, sr) {
 
 	svg.selectAll(".subunit")
@@ -581,9 +589,10 @@ function getMap() {
         .attr("d", path)
         .style("stroke", "#fff")
         .on("mouseover", function(d) {
-            var title = d.properties.name + ': ' + d.properties.money + 'din.';
-            d3.select(".stat")
-            .text(title);
+            var title = d.properties.name;
+            var price = d.properties.money + ' din.';
+            d3.select(".stat").text(title)
+            d3.select(".statValue").text(price)
         });
 
 	svg.selectAll(".subunit-label")
