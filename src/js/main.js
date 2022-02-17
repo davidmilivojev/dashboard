@@ -262,8 +262,8 @@ function animatedBar() {
             throw error;
         }
 
-        x.domain(data.map(function(d) { return d.year; }));
-        y.domain([0, d3.max(data, function(d) { return d.value; })]);
+        x.domain(data.map(function(d) { return d.nazivSektora; }));
+        y.domain([0, d3.max(data, function(d) { return d.budzet; })]);
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
@@ -277,8 +277,8 @@ function animatedBar() {
          .attr("class", "bar")
          .on("mouseover", onMouseOver) //Add listener for the mouseover event
          .on("mouseout", onMouseOut)   //Add listener for the mouseout event
-         .attr("x", function(d) { return x(d.year); })
-         .attr("y", function(d) { return y(d.value); })
+         .attr("x", function(d) { return x(d.nazivSektora); })
+         .attr("y", function(d) { return y(d.budzet); })
          .attr("width", x.bandwidth())
          .transition()
          .ease(d3.easeLinear)
@@ -289,7 +289,7 @@ function animatedBar() {
          .style("fill", function(d, i) {
             return color(i);
          })
-         .attr("height", function(d) { return height - y(d.value); });
+         .attr("height", function(d) { return height - y(d.budzet); });
     });
 
     //mouseover event handler function
@@ -299,17 +299,17 @@ function animatedBar() {
           .transition()     // adds animation
           .duration(400)
           .attr('width', x.bandwidth() + 5)
-          .attr("y", function(d) { return y(d.value) - 10; })
-          .attr("height", function(d) { return height - y(d.value) + 10; });
+          .attr("y", function(d) { return y(d.budzet) - 10; })
+          .attr("height", function(d) { return height - y(d.budzet) + 10; });
 
           g.append("rect")
           .attr('class', 'val')
           .attr('x', function() {
-              var xWidth = (x(d.year) - 55);
+              var xWidth = (x(d.nazivSektora) - 55);
               return xWidth;
           })
           .attr('y', function() {
-              return y(d.value) - 65;
+              return y(d.budzet) - 65;
           })
           .attr('rx', 5)
           .attr('width', 140)
@@ -322,21 +322,21 @@ function animatedBar() {
           .attr("fill", "#E9E9E9")
           .attr('class', 'val')
           .attr('transform', function() {
-              var xWidth = x(d.year) + 16;
-              var xHeight = (height - y(d.value) + 20)*(-1);
+              var xWidth = x(d.nazivSektora) + 16;
+              var xHeight = (height - y(d.budzet) + 20)*(-1);
               return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
           })
 
           g.append("text")
          .attr('class', 'val')
          .attr('x', function() {
-             return x(d.year) - 30;
+             return x(d.nazivSektora) - 30;
          })
          .attr('y', function() {
-             return y(d.value) - 40;
+             return y(d.budzet) - 40;
          })
          .text(function() {
-             return [ d.value + " milijardi din."];
+             return [ d.budzet + " milijardi din."];
          });
     }
 
@@ -348,8 +348,8 @@ function animatedBar() {
           .transition()     // adds animation
           .duration(400)
           .attr('width', x.bandwidth())
-          .attr("y", function(d) { return y(d.value); })
-          .attr("height", function(d) { return height - y(d.value); });
+          .attr("y", function(d) { return y(d.budzet); })
+          .attr("height", function(d) { return height - y(d.budzet); });
 
         d3.selectAll('.val')
           .remove()
