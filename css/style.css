@@ -61,8 +61,8 @@ iconfont Webfont
 */
 @font-face {
   font-family: 'iconfont';
-  src: url("../fonts/iconfont.eot?1645054245016");
-  src: url("../fonts/iconfont.eot?#iefix-1645054245016") format("embedded-opentype"), url("../fonts/iconfont.woff2?1645054245016") format("woff2"), url("../fonts/iconfont.woff?1645054245016") format("woff"), url("../fonts/iconfont.ttf?1645054245016") format("truetype");
+  src: url("../fonts/iconfont.eot?1645306401628");
+  src: url("../fonts/iconfont.eot?#iefix-1645306401628") format("embedded-opentype"), url("../fonts/iconfont.woff2?1645306401628") format("woff2"), url("../fonts/iconfont.woff?1645306401628") format("woff"), url("../fonts/iconfont.ttf?1645306401628") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -566,8 +566,10 @@ label {
     color: white;
     padding: 12px 8px;
     text-transform: capitalize;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 20px; }
+  .tbl td {
+    font-size: 13px; }
   .tbl td,
   .tbl tr {
     border: 1px solid #ddd;
