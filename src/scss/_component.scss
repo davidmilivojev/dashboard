@@ -1,14 +1,18 @@
 .bar {
 	fill: $bermuda;
 }
-#bar {
+#bar1,
+#bar2,
+#bar3,
+#bar4,
+#bar5 {
 	line,
 	.domain {
 		stroke: #fff;
 	}
 	text {
 		font-weight: 700;
-		font-size: 12px;
+		font-size: 10px;
 	}
 }
 .arc {

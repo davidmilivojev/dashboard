@@ -3,8 +3,11 @@
 	@if $value == 'phone' {
 		@media only screen and (max-width: 767px) { @content; }
 	} @else if $value == 'tablet' {
-		@media only screen and (max-width: 1200px) { @content; }
-	} @else {
+		@media only screen and (max-width: 1199px) { @content; }
+	} @else if $value == 'desktop' {
+		@media only screen and (min-width: 1200px) { @content; }
+	}
+	@else {
 		@media only screen and (max-width: $value) { @content; }
 	}
 }
