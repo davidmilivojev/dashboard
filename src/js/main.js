@@ -605,12 +605,124 @@ function joinPie5() {
     }
 }
 
+// function animatedBar() {
+//     var svg = d3.select("#bar1"),
+//         width = svg.attr("width") - 20,
+//         height = svg.attr("height") - 120;
+
+//     var x = d3.scaleBand().range([0, width]).padding(0.4),
+//         y = d3.scaleLinear().range([height, 0]);
+//     var color = d3.scaleOrdinal().range(themeColors);
+
+//     var g = svg.append("g")
+//             .attr("transform", "translate(" + 0 + "," + 80 + ")");
+//     // symbolTriangle
+//     var sym = d3.symbol().type(d3.symbolTriangle).size(200);
+
+//     d3.csv("bar.csv", function(error, data) {
+//         if (error) {
+//             throw error;
+//         }
+
+//         x.domain(data.map(function(d) { return d.nazivSektora; }));
+//         y.domain([0, d3.max(data, function(d) { return d.budzet; })]);
+
+//         g.append("g")
+//          .attr("transform", "translate(0," + height + ")")
+//          .call(d3.axisBottom(x).tickFormat(function(d){
+//             return d;
+//         }))
+
+//         g.selectAll(".bar")
+//          .data(data)
+//          .enter().append("rect")
+//          .attr("class", "bar")
+//          .on("mouseover", onMouseOver) //Add listener for the mouseover event
+//          .on("mouseout", onMouseOut)   //Add listener for the mouseout event
+//          .attr("x", function(d) { return x(d.nazivSektora); })
+//          .attr("y", function(d) { return y(d.budzet); })
+//          .attr("width", x.bandwidth())
+//          .transition()
+//          .ease(d3.easeLinear)
+//          .duration(400)
+//          .delay(function (d, i) {
+//              return i * 50;
+//          })
+//          .style("fill", function(d, i) {
+//             return color(i);
+//          })
+//          .attr("height", function(d) { return height - y(d.budzet); });
+//     });
+
+//     //mouseover event handler function
+//     function onMouseOver(d, i) {
+//         d3.select(this).attr('class', 'highlight');
+//         d3.select(this)
+//           .transition()     // adds animation
+//           .duration(400)
+//           .attr('width', x.bandwidth() + 5)
+//           .attr("y", function(d) { return y(d.budzet) - 10; })
+//           .attr("height", function(d) { return height - y(d.budzet) + 10; });
+
+//           g.append("rect")
+//           .attr('class', 'val')
+//           .attr('x', function() {
+//               var xWidth = (x(d.nazivSektora) - 55);
+//               return xWidth;
+//           })
+//           .attr('y', function() {
+//               return y(d.budzet) - 65;
+//           })
+//           .attr('rx', 5)
+//           .attr('width', 140)
+//           .attr("height", 40)
+//           .attr('fill', '#E9E9E9')
+
+//           g.select('g')
+//           .append("path")
+//           .attr("d", sym)
+//           .attr("fill", "#E9E9E9")
+//           .attr('class', 'val')
+//           .attr('transform', function() {
+//               var xWidth = x(d.nazivSektora) + 16;
+//               var xHeight = (height - y(d.budzet) + 20)*(-1);
+//               return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
+//           })
+
+//           g.append("text")
+//          .attr('class', 'val')
+//          .attr('x', function() {
+//              return x(d.nazivSektora) - 30;
+//          })
+//          .attr('y', function() {
+//              return y(d.budzet) - 40;
+//          })
+//          .text(function() {
+//              return [ d.budzet + " milijardi din."];
+//          });
+//     }
+
+//     //mouseout event handler function
+//     function onMouseOut(d, i) {
+//         // use the text label class to remove label on mouseout
+//         d3.select(this).attr('class', 'bar');
+//         d3.select(this)
+//           .transition()     // adds animation
+//           .duration(400)
+//           .attr('width', x.bandwidth())
+//           .attr("y", function(d) { return y(d.budzet); })
+//           .attr("height", function(d) { return height - y(d.budzet); });
+
+//         d3.selectAll('.val')
+//           .remove()
+//     }
+// }
 function animatedBar() {
     var svg = d3.select("#bar1"),
-        width = svg.attr("width") - 20,
+        width = svg.attr("width"),
         height = svg.attr("height") - 120;
 
-    var x = d3.scaleBand().range([0, width]).padding(0.4),
+    var x = d3.scaleBand().range([0, width]).padding(0.35),
         y = d3.scaleLinear().range([height, 0]);
     var color = d3.scaleOrdinal().range(themeColors);
 
@@ -625,7 +737,7 @@ function animatedBar() {
         }
 
         x.domain(data.map(function(d) { return d.nazivSektora; }));
-        y.domain([0, d3.max(data, function(d) { return d.budzet; })]);
+        y.domain([0, d3.max(data, function(d) { return +removeDots(d.budzet); })]);
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
@@ -640,7 +752,7 @@ function animatedBar() {
          .on("mouseover", onMouseOver) //Add listener for the mouseover event
          .on("mouseout", onMouseOut)   //Add listener for the mouseout event
          .attr("x", function(d) { return x(d.nazivSektora); })
-         .attr("y", function(d) { return y(d.budzet); })
+         .attr("y", function(d) { return y(+removeDots(d.budzet)); })
          .attr("width", x.bandwidth())
          .transition()
          .ease(d3.easeLinear)
@@ -651,7 +763,7 @@ function animatedBar() {
          .style("fill", function(d, i) {
             return color(i);
          })
-         .attr("height", function(d) { return height - y(d.budzet); });
+         .attr("height", function(d) { return height - y(+removeDots(d.budzet)); });
     });
 
     //mouseover event handler function
@@ -661,8 +773,8 @@ function animatedBar() {
           .transition()     // adds animation
           .duration(400)
           .attr('width', x.bandwidth() + 5)
-          .attr("y", function(d) { return y(d.budzet) - 10; })
-          .attr("height", function(d) { return height - y(d.budzet) + 10; });
+          .attr("y", function(d) { return y(+removeDots(d.budzet)) - 10; })
+          .attr("height", function(d) { return height - y(+removeDots(d.budzet)) + 10; });
 
           g.append("rect")
           .attr('class', 'val')
@@ -671,7 +783,7 @@ function animatedBar() {
               return xWidth;
           })
           .attr('y', function() {
-              return y(d.budzet) - 65;
+              return y(+removeDots(d.budzet)) - 65;
           })
           .attr('rx', 5)
           .attr('width', 140)
@@ -684,8 +796,8 @@ function animatedBar() {
           .attr("fill", "#E9E9E9")
           .attr('class', 'val')
           .attr('transform', function() {
-              var xWidth = x(d.nazivSektora) + 16;
-              var xHeight = (height - y(d.budzet) + 20)*(-1);
+              var xWidth = x(d.nazivSektora) + 12;
+              var xHeight = (height - y(+removeDots(d.budzet)) + 20)*(-1);
               return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
           })
 
@@ -695,10 +807,10 @@ function animatedBar() {
              return x(d.nazivSektora) - 30;
          })
          .attr('y', function() {
-             return y(d.budzet) - 40;
+             return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " milijardi din."];
+             return [ d.budzet + " din."];
          });
     }
 
@@ -710,8 +822,8 @@ function animatedBar() {
           .transition()     // adds animation
           .duration(400)
           .attr('width', x.bandwidth())
-          .attr("y", function(d) { return y(d.budzet); })
-          .attr("height", function(d) { return height - y(d.budzet); });
+          .attr("y", function(d) { return y(+removeDots(d.budzet)); })
+          .attr("height", function(d) { return height - y(+removeDots(d.budzet)); });
 
         d3.selectAll('.val')
           .remove()
@@ -796,7 +908,7 @@ function animatedBar2() {
           .attr("fill", "#E9E9E9")
           .attr('class', 'val')
           .attr('transform', function() {
-              var xWidth = x(d.nazivSektora) + 16;
+              var xWidth = x(d.nazivSektora) + 12;
               var xHeight = (height - y(+removeDots(d.budzet)) + 20)*(-1);
               return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
           })
@@ -908,7 +1020,7 @@ function animatedBar3() {
           .attr("fill", "#E9E9E9")
           .attr('class', 'val')
           .attr('transform', function() {
-              var xWidth = x(d.nazivSektora) + 16;
+              var xWidth = x(d.nazivSektora) + 12;
               var xHeight = (height - y(+removeDots(d.budzet)) + 20)*(-1);
               return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
           })
@@ -1020,7 +1132,7 @@ function animatedBar4() {
           .attr("fill", "#E9E9E9")
           .attr('class', 'val')
           .attr('transform', function() {
-              var xWidth = x(d.nazivSektora) + 16;
+              var xWidth = x(d.nazivSektora) + 12;
               var xHeight = (height - y(+removeDots(d.budzet)) + 20)*(-1);
               return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
           })
@@ -1132,7 +1244,7 @@ function animatedBar5() {
           .attr("fill", "#E9E9E9")
           .attr('class', 'val')
           .attr('transform', function() {
-              var xWidth = x(d.nazivSektora) + 16;
+              var xWidth = x(d.nazivSektora) + 12;
               var xHeight = (height - y(+removeDots(d.budzet)) + 20)*(-1);
               return "translate(" + xWidth + "," + xHeight + ") rotate(180)";
           })
