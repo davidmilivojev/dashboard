@@ -732,6 +732,8 @@ function horizontalBar() {
 
             svg.selectAll("g").remove();
             svg.selectAll("rect").remove();
+        var color = d3.scaleOrdinal()
+            .range(themeColors);
         // set the ranges
         var y = d3.scaleBand()
                 .range([height, 0])
@@ -778,16 +780,17 @@ function horizontalBar() {
             }
         // Scale the range of the data in the domains
         x.domain([0, d3.max(data, function(d){ return +removeDots(d.budzet); })])
-        y.domain(data.map(function(d) { return (d.nazivSektora + ' - ' + d.budzet); }));
+        y.domain(data.map(function(d) { return (d.nazivSektora + ' - ' + d.budzet + ' din.'); }));
 
         // append the rectangles for the bar chart
-        svg.selectAll(".bar")
+        svg.selectAll(".barh")
             .data(data)
             .enter().append("rect")
-            .attr("class", "bar")
+            .attr("class", "barh")
+            .attr("fill", function(d) { return color(d.budzet); })
             // .attr("x", function(d) { return x(d.budzet); })
             .attr("width", function(d) {return x(+removeDots(d.budzet)); } )
-            .attr("y", function(d) { return y((d.nazivSektora + ' - ' + d.budzet)); })
+            .attr("y", function(d) { return y((d.nazivSektora + ' - ' + d.budzet + ' din.')); })
             .attr("height", y.bandwidth());
 
         // add the x Axis
@@ -1599,7 +1602,7 @@ function getMap() {
         .style("stroke", "#fff")
         .on("mouseover", function(d) {
             var title = d.properties.name;
-            var price = d.properties.money + ' din.';
+            var price = numberWithCommas(d.properties.money) + ' din.';
             d3.select(".stat").text(title)
             d3.select(".statValue").text(price)
         });
