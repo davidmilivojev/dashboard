@@ -12,7 +12,7 @@
 <body>
 	<header class="header">
 		<nav class="navigation">
-			<ul class="navigation-list">
+			<ul class="navigation-list list">
 				<li class="list__item">
 					<a href=":javascript;" class="list__link">VESTI</a>
 				</li>
@@ -22,7 +22,7 @@
 				<li class="list__item">
 					<a href=":javascript;" class="list__link nav--arrow">U FOKUSU</a>
 				</li>
-				<li class="list__item line--none">
+				<li class="list__item">
 					<a href=":javascript;" class="list__link nav--arrow">O NAMA</a>
 				</li>
 			</ul>
@@ -31,7 +31,14 @@
 	<div class="wrapper">
 		<div class="content">
 			<h1 class="content__title">Baza podataka o javnim konkursima</h1>
-			<p class="content__about">BIRN Srbija, u patnerstvu sa Građanskim inicijativama i timom istraživača iz 17 lokalnih organizacija civilnog društva, predstvalja onlajn bazu javnih konkursa. Baza omogućava praćenje potrošnje budžetskog novca u sektorima medija i javnog informisanja, kulture i umetnosti, organizacija civilnog društva i omladine.</p>
+			<p class="content__about">BIRN Srbija, u patnerstvu sa Građanskim inicijativama i timom istraživača iz 17 lokalnih organizacija civilnog društva, predstvalja onlajn bazu javnih konkursa. Baza omogućava praćenje potrošnje budžetskog novca u sektorima medija i javnog informisanja, kulture i umetnosti, organiyacija civilnog društva i omladine.</p>
+		</div>
+		<div>
+			<ul class="list">
+				<li class="list__item"><a class="list__link" href="javascript:;">Pregled</a></li>
+				<li class="list__item"><a class="list__link" href="javascript:;">Analize i izvestaji</a></li>
+				<li class="list__item"><a class="list__link" href="javascript:;">O projektu</a></li>
+			</ul>
 		</div>
 	</div>
 	<!-- temp -->
@@ -231,56 +238,143 @@
 							</div>
 						</div>
 						<div class="blocks">
-							<div class="blocks__col">
+							<div class="blocks__col blocks__col--4">
+								<div class="chart">
+									<span class="chart__title">Potrošnja po okruzima</span>
+									<svg id="map" width="280" height="280"></svg>
+								</div>
+							</div>
+							<div class="blocks__col blocks__col--4">
 								<div class="chart pie1">
+									<span class="chart__title">Potrošnja po nivoima vlasti</span>
+									<div class="chart__controls">
+										<div class="chart__inner">
+											<label>
+												<input class="cbx" type="checkbox" name="y1" id="year2019" checked>
+												2019
+											</label>
+											<label>
+												<input class="cbx" type="checkbox" name="y2" id="year2020">
+												2020
+											</label>
+											<label>
+												<input class="cbx" type="checkbox" name="y3" id="year2021">
+												2021
+											</label>
+										</div>
+									</div>
+									<svg width="280" height="280" id="pie1"></svg>
+								</div>
+							</div>
+							<div class="blocks__col blocks__col--4">
+								<div class="chart pie2">
+									<span class="chart__title">Potrošnja po sektorima</span>
+									<div class="chart__controls">
+										<label>
+											<input class="cbx" type="checkbox" name="y1" id="xyear2019" checked>
+											2019
+										</label>
+										<label>
+											<input class="cbx" type="checkbox" name="y2" id="xyear2020">
+											2020
+										</label>
+										<label>
+											<input class="cbx" type="checkbox" name="y3" id="xyear2021">
+											2021
+										</label>
+									</div>
+									<svg width="280" height="280" id="pie2"></svg>
+								</div>
+							</div>
+							<div class="blocks__col blocks__col--4">
+								<div class="chart">
+									<span class="chart__title">Najveći dobitnici</span>
+								</div>
+								<iframe src="https://flo.uri.sh/visualisation/7833589/embed?auto=1" frameborder="0" width="300" height="340"></iframe>
+							</div>
+						</div>
+						<div class="blocks">
+							<div class="blocks__col blocks__col--5-2">
+								<div class="chart">
+									<span class="chart__title">Potrošnja po tipu 2019-2021</span>
+									<svg width="480" height="440" id="bar1"></svg>
+								</div>
+							</div>
+							<div class="blocks__col blocks__col--5-3">
+								<div class="chart hbar">
+									<span class="chart__title">Top 5 korisnika <span class="js-hbar">MEDIJI</span> </span>
+									<svg width="680" height="440" id="graphic"></svg>
+									<div class="blocks__radio">
+										<label>MEDIJI <input checked id="radio1" class="radio" type="radio" name="data"></label>
+										<label>OCD <input id="radio2" class="radio" type="radio" name="data"></label>
+										<label>kultura <input id="radio3" class="radio" type="radio" name="data"></label>
+										<label>omladina <input id="radio4" class="radio" type="radio" name="data"></label>
+									</div>
+									<!-- <div class="blocks__list">
+										<ul>
+											<li><b>K1 - </b> <span>RADIO TELEVIZIJA NOVI PAZAR DOO NOVI PAZAR</span></li>
+											<li><b>K2 - </b> <span>NOVOSADSKA TV DOO NOVI SAD</span></li>
+											<li><b>K3 - </b> <span>SREMSKA TELEVIZIJA DOO ŠID</span></li>
+											<li><b>K4 - </b> <span>VTV DOO SUBOTICA</span></li>
+											<li><b>K5 - </b> <span>PREDUZEĆE ZA INFORMISANJE I MARKETING STUDIO MAG DOO, OBRENOVAC</span></li>
+										</ul>
+									</div> -->
+								</div>
+							</div>
+						</div>
+						<div class="blocks">
+							<div class="blocks__col blocks__col--5">
+								<div class="chart">
+									<span class="chart__title">Broj finansiranih projekata 2019-2021</span>
+								</div>
+								<iframe src="https://flo.uri.sh/visualisation/8879104/embed?auto=1" frameborder="0" width="220" height="280"></iframe>
+							</div>
+							<div class="blocks__col blocks__col--5">
+								<div class="chart pie4">
 									<span class="chart__title">Potroseno po nivoima vlasti</span>
 									<div class="chart__controls">
-										<label>
-											2019
-											<input class="cbx" type="checkbox" name="y1" id="year2019" checked>
-										</label>
-										<label>
-											2020
-											<input class="cbx" type="checkbox" name="y2" id="year2020">
-										</label>
-										<label>
-											2021
-											<input class="cbx" type="checkbox" name="y3" id="year2021">
-										</label>
+										<div class="chart__inner">
+											<label>
+												<input class="cbx" type="checkbox" name="y1" id="year2019" checked>
+												2019
+											</label>
+											<label>
+												<input class="cbx" type="checkbox" name="y2" id="year2020">
+												2020
+											</label>
+											<label>
+												<input class="cbx" type="checkbox" name="y3" id="year2021">
+												2021
+											</label>
+										</div>
 									</div>
-									<svg width="400" height="300" id="pie1"></svg>
+									<svg width="220" height="240" id="pie4"></svg>
 								</div>
 							</div>
-							<div class="blocks__col">
-								<div class="chart pie2">
-									<span class="chart__title">Potroseno po projektima</span>
+							<div class="blocks__col blocks__col--5">
+								<div class="chart pie5">
+									<span class="chart__title">Potroseno po nivoima vlasti</span>
 									<div class="chart__controls">
-										<label>
-											2019
-											<input class="cbx" type="checkbox" name="y1" id="xyear2019" checked>
-										</label>
-										<label>
-											2020
-											<input class="cbx" type="checkbox" name="y2" id="xyear2020">
-										</label>
-										<label>
-											2021
-											<input class="cbx" type="checkbox" name="y3" id="xyear2021">
-										</label>
+										<div class="chart__inner">
+											<label>
+												<input class="cbx" type="checkbox" name="y1" id="year2019" checked>
+												2019
+											</label>
+											<label>
+												<input class="cbx" type="checkbox" name="y2" id="year2020">
+												2020
+											</label>
+											<label>
+												<input class="cbx" type="checkbox" name="y3" id="year2021">
+												2021
+											</label>
+										</div>
 									</div>
-									<svg width="400" height="300" id="pie2"></svg>
+									<svg width="220" height="240" id="pie5"></svg>
 								</div>
 							</div>
-							<div class="blocks__col">
-								<div class="chart">
-									<span class="chart__title">Potroseno po sektorima</span>
-									<svg width="400" height="370" id="bar"></svg>
-								</div>
-							</div>
-							<div class="blocks__col">
-								<iframe src="https://flo.uri.sh/visualisation/7842013/embed?auto=1" frameborder="0" width="400" height="440"></iframe>
-							</div>
-							<div class="blocks__col blocks__col--wide">
+							<div class="blocks__col blocks__col--wide blocks__col--5">
+								<span class="blocks__title">Najskuplji projekti</span>
 								<div class="table-fixed-header">
 									<table class="table-fixed-header__inner">
 										<thead>
@@ -293,47 +387,77 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td>Put do Omladinske prestonice Evrope 2019. godine – aktivnosti u 2019. godini</td>
+												<td>Put do Omladinske prestonice Evrope 2019. godine - aktivnosti u 2019. godini</td>
 												<td>Omladinski savez udruženja Novi Sad Omladinska prestonica Evrope - OPENS</td>
-												<td>138508000</td>
+												<td>138.508.000</td>
 												<td>2019.</td>
 											</tr>
 											<tr>
 												<td>Podizanje kapaciteta dobrovoljnih vatrogasnih jedinica nabavkom odeće i materijalno-tehničkih sredstava radi povećanja programskih aktivnosti u oblasti zaštite i spasavanja</td>
 												<td>Vatrogasni savez Srbije</td>
-												<td>50000000</td>
-												<td>2020.</td>
-											</tr>
-											<tr>
-												<td>Podizanje kapaciteta dobrovoljnih vatrogasnih jedinica nabavkom odeće i materijalno-tehničkih sredstava radi povećanja programskih aktivnosti u oblasti zaštite i spasavanja</td>
-												<td>Vatrogasni savez Srbije</td>
-												<td>50000000</td>
-												<td>2020.</td>
-											</tr>
-											<tr>
-												<td>Podizanje kapaciteta dobrovoljnih vatrogasnih jedinica nabavkom odeće i materijalno-tehničkih sredstava radi povećanja programskih aktivnosti u oblasti zaštite i spasavanja</td>
-												<td>Vatrogasni savez Srbije</td>
-												<td>50000000</td>
+												<td>50.000.000</td>
 												<td>2020.</td>
 											</tr>
 											<tr>
 												<td>U službi javnog interesa - informisan građanin</td>
-												<td>Radio televizija Novi Pazar doo Novi Pazar</td>
-												<td>46900000</td>
+												<td>RADIO TELEVIZIJA<br>
+													NOVI PAZAR DOO<br>
+													NOVI PAZAR
+												</td>
+												<td>46.900.000</td>
 												<td>2021.</td>
 											</tr>
 											<tr>
-												<td>U službi javnog interesa - informisan građanin</td>
-												<td>Radio televizija Novi Pazar doo Novi Pazar</td>
-												<td>46900000</td>
-												<td>2022.</td>
+												<td>Javni interes naš prioritet</td>
+												<td>RADIO TELEVIZIJA<br>
+													NOVI PAZAR DOO<br>
+													NOVI PAZAR
+												</td>
+												<td>45.600.000</td>
+												<td>2019.</td>
+											</tr>
+											<tr>
+												<td>Građani i javni interes na prvom mestu</td>
+												<td>RADIO TELEVIZIJA<br>
+													NOVI PAZAR DOO<br>
+													NOVI PAZAR
+												</td>
+												<td>45.000.000</td>
+												<td>2020.</td>
+											</tr>
+											<tr>
+												<td>Exit festival 2021 </td>
+												<td>FONDACIJA EXIT</td>
+												<td>40.000.000</td>
+												<td>2021.</td>
+											</tr>
+											<tr>
+												<td>Exit festival 2020 </td>
+												<td>FONDACIJA EXIT</td>
+												<td>3.5000.000</td>
+												<td>2020.</td>
+											</tr>
+											<tr>
+												<td>Nova šansa </td>
+												<td>CENTAR ZA EDUKACIJU I TRANSPARENTNOST</td>
+												<td>3.005.8000</td>
+												<td>2021.</td>
+											</tr>
+											<tr>
+												<td>Mladi u centru</td>
+												<td>OMLADINSKI SAVEZ UDRUŽENJA NOVI SAD OMLADINSKA PRESTONICA EVROPE - OPENS</td>
+												<td>30.000.000</td>
+												<td>2021.</td>
+											</tr>
+											<tr>
+												<td>Programi podrške za osobe sa intelektualnim teškoćama i porodice</td>
+												<td>SAVEZ UDRUŽENJA ZA POMOĆ MENTALNO NEDOVOLJNO RAZVIJENIM OSOBAMA SRBIJE</td>
+												<td>29.500.000</td>
+												<td>2019.</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
-							</div>
-							<div class="blocks__col">
-								<!-- TODO: MAP -->
 							</div>
 						</div>
 					</div>
@@ -343,16 +467,71 @@
 						</div>
 					</div>
 					<div class="container__content js-content">
-						download TODO:
+						<div class="content">
+							<h2 class="title">Download</h2>
+							<div class="cards cards--basic">
+								<div class="cards__col">
+									<div class="block js-counter">
+										<div class="block__holder">
+											<div class="block__content">
+												<a class="block__title" href="cards.csv" download>
+													<span class="icon-table"></span>
+													Dashboard kartice
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="cards__col">
+									<div class="block js-counter">
+										<div class="block__holder">
+											<div class="block__content">
+												<a class="block__title" href="bar.csv" download>
+													<span class="icon-table"></span>
+													Potroseno po sektorima
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="cards__col">
+									<div class="block js-counter">
+										<div class="block__holder">
+											<div class="block__content">
+												<a class="block__title" href="konkursi.csv" download>
+													<span class="icon-table"></span>
+													Potroseno po nivoima vlasti
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="cards__col">
+									<div class="block js-counter">
+										<div class="block__holder">
+											<div class="block__content">
+												<a class="block__title" href="projekti.csv" download>
+													<span class="icon-table"></span>
+													Potroseno po projektima
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="container__content js-content">
-						filter TODO:
+						<div class="content">
+							<h2 class="title">Filter - TODO</h2>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
 	<!-- js -->
+	<script src="./js/parser.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="./js/main.js"></script>
 </body>
