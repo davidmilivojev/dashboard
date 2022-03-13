@@ -294,29 +294,23 @@
 							</div>
 						</div>
 						<div class="blocks">
-							<div class="blocks__col blocks__col--5">
+							<div class="blocks__col blocks__col--5-2">
 								<div class="chart">
 									<span class="chart__title">Potroseno po sektorima</span>
-									<svg width="220" height="240" id="bar1"></svg>
-									<div class="blocks__list">
-										<ul>
-											<li><b>K1 - </b> <span>DOO</span></li>
-											<li><b>K2 - </b> <span>FIZIČKO LICE</span></li>
-											<li><b>K3 - </b> <span>FONDACIJA</span></li>
-											<li><b>K4 - </b> <span>OSTALO</span></li>
-											<li><b>K5 - </b> <span>PREDUZETNIK</span></li>
-											<li><b>K6 - </b> <span>UDRUŽENJE</span></li>
-											<li><b>K7 - </b> <span>USTANOVA</span></li>
-											<li><b>K8 - </b> <span>ZADUŽBINA</span></li>
-										</ul>
-									</div>
+									<svg width="480" height="440" id="bar1"></svg>
 								</div>
 							</div>
-							<div class="blocks__col blocks__col--5">
-								<div class="chart">
-									<span class="chart__title">Top 5 korisnika MEDIJI </span>
-									<svg width="220" height="240" id="bar2"></svg>
-									<div class="blocks__list">
+							<div class="blocks__col blocks__col--5-3">
+								<div class="chart hbar">
+									<span class="chart__title">Top 5 korisnika <span class="js-hbar">MEDIJI</span> </span>
+									<svg width="680" height="440" id="graphic"></svg>
+									<div class="blocks__radio">
+										<label>MEDIJI <input checked id="radio1" class="radio" type="radio" name="data"></label>
+										<label>OCD <input id="radio2" class="radio" type="radio" name="data"></label>
+										<label>kultura <input id="radio3" class="radio" type="radio" name="data"></label>
+										<label>omladina <input id="radio4" class="radio" type="radio" name="data"></label>
+									</div>
+									<!-- <div class="blocks__list">
 										<ul>
 											<li><b>K1 - </b> <span>RADIO TELEVIZIJA NOVI PAZAR DOO NOVI PAZAR</span></li>
 											<li><b>K2 - </b> <span>NOVOSADSKA TV DOO NOVI SAD</span></li>
@@ -324,77 +318,16 @@
 											<li><b>K4 - </b> <span>VTV DOO SUBOTICA</span></li>
 											<li><b>K5 - </b> <span>PREDUZEĆE ZA INFORMISANJE I MARKETING STUDIO MAG DOO, OBRENOVAC</span></li>
 										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="blocks__col blocks__col--5">
-								<div class="chart">
-									<span class="chart__title">Top 5 korisnika OCD</span>
-									<svg width="220" height="240" id="bar3"></svg>
-									<div class="blocks__list">
-										<ul>
-											<li><b>K1 - </b> <span>FONDACIJA EXIT</span></li>
-											<li><b>K2 - </b> <span>VATROGASNI SAVEZ SRBIJE</span></li>
-											<li><b>K3 - </b> <span>EPARHIJA TIMOČKA - CRKVENA OPŠTINA ZAJEČAR</span></li>
-											<li><b>K4 - </b> <span>NACIONALNA ORGANIZACIJA OSOBA SA INVALIDITETOM SRBIJE</span></li>
-											<li><b>K5 - </b> <span>SAVEZ UDRUŽENJA ZA POMOĆ MENTALNO NEDOVOLJNO RAZVIJENIM OSOBAMA SRBIJE</span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="blocks__col blocks__col--5">
-								<div class="chart">
-									<span class="chart__title">Top 5 korisnika kultura</span>
-									<svg width="220" height="240" id="bar4"></svg>
-									<div class="blocks__list">
-										<ul>
-											<li><b>K1 - </b> <span>MUZIČKA OMLADINA NOVOG SADA</span></li>
-											<li><b>K2 - </b> <span>FONDACIJA EXIT</span></li>
-											<li><b>K3 - </b> <span>ZAVOD ZA ZAŠTITU SPOMENIKA KULTURE SREMSKA MITROVICA</span></li>
-											<li><b>K4 - </b> <span>ARHEOLOŠKI INSTITUT BEOGRAD</span></li>
-											<li><b>K5 - </b> <span>ZAVOD ZA ZAŠTITU SPOMENIKA KULTURE NIŠ</span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="blocks__col blocks__col--5">
-								<div class="chart">
-									<span class="chart__title">Top 5 korisnika omladina</span>
-									<svg width="220" height="240" id="bar5"></svg>
-									<div class="blocks__list">
-										<ul>
-											<li><b>K1 - </b> <span>OMLADINSKI SAVEZ UDRUŽENJA NOVI SAD OMLADINSKA PRESTONICA EVROPE - OPENS</span></li>
-											<li><b>K2 - </b> <span>MLADI ISTRAŽIVAČI SRBIJE</span></li>
-											<li><b>K3 - </b> <span>UDRUŽENJE GRAĐANA SOCIETAS BEOGRAD</span></li>
-											<li><b>K4 - </b> <span>UDRUŽENJE RESURS CENTAR ZA ODRŽIVI RAZVOJ BEOGRAD</span></li>
-											<li><b>K5 - </b> <span>CENTAR ZA EDUKACIJU I USAVRŠAVANJE, BEOGRAD</span></li>
-										</ul>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>
 						<div class="blocks">
 							<div class="blocks__col blocks__col--5">
-								<div class="chart pie3">
-									<span class="chart__title">Potroseno po nivoima vlasti</span>
-									<div class="chart__controls">
-										<div class="chart__inner">
-											<label>
-												<input class="cbx" type="checkbox" name="y1" id="year2019" checked>
-												2019
-											</label>
-											<label>
-												<input class="cbx" type="checkbox" name="y2" id="year2020">
-												2020
-											</label>
-											<label>
-												<input class="cbx" type="checkbox" name="y3" id="year2021">
-												2021
-											</label>
-										</div>
-									</div>
-									<svg width="220" height="240" id="pie3"></svg>
+								<div class="chart">
+									<span class="chart__title">Najveći dobitnici</span>
 								</div>
+								<iframe src="https://flo.uri.sh/visualisation/8879104/embed?auto=1" frameborder="0" width="220" height="280"></iframe>
 							</div>
 							<div class="blocks__col blocks__col--5">
 								<div class="chart pie4">
