@@ -61,8 +61,8 @@ iconfont Webfont
 */
 @font-face {
   font-family: 'iconfont';
-  src: url("../fonts/iconfont.eot?1645306401628");
-  src: url("../fonts/iconfont.eot?#iefix-1645306401628") format("embedded-opentype"), url("../fonts/iconfont.woff2?1645306401628") format("woff2"), url("../fonts/iconfont.woff?1645306401628") format("woff"), url("../fonts/iconfont.ttf?1645306401628") format("truetype");
+  src: url("../fonts/iconfont.eot?1647121171429");
+  src: url("../fonts/iconfont.eot?#iefix-1647121171429") format("embedded-opentype"), url("../fonts/iconfont.woff2?1647121171429") format("woff2"), url("../fonts/iconfont.woff?1647121171429") format("woff"), url("../fonts/iconfont.ttf?1647121171429") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -118,13 +118,53 @@ Glyphs list
 .bar {
   fill: #6887A6; }
 
-#bar line,
-#bar .domain {
+#bar1 line,
+#bar1 .domain,
+#bar2 line,
+#bar2 .domain,
+#bar3 line,
+#bar3 .domain,
+#bar4 line,
+#bar4 .domain,
+#bar5 line,
+#bar5 .domain {
   stroke: #fff; }
 
-#bar text {
+#bar1 text,
+#bar2 text,
+#bar3 text,
+#bar4 text,
+#bar5 text {
   font-weight: 700;
+  font-size: 10px; }
+
+#bar1 text {
+  font-size: 8px; }
+
+#bar1 .val {
   font-size: 12px; }
+
+#graphic {
+  margin-top: 30px; }
+
+.ghbar .tick {
+  text-anchor: start;
+  -webkit-transform: translate(20px, 295px);
+          transform: translate(20px, 295px); }
+  .ghbar .tick line {
+    stroke: #fff; }
+  .ghbar .tick:nth-of-type(2) {
+    -webkit-transform: translate(20px, 225px);
+            transform: translate(20px, 225px); }
+  .ghbar .tick:nth-of-type(3) {
+    -webkit-transform: translate(20px, 155px);
+            transform: translate(20px, 155px); }
+  .ghbar .tick:nth-of-type(4) {
+    -webkit-transform: translate(20px, 85px);
+            transform: translate(20px, 85px); }
+  .ghbar .tick:nth-of-type(5) {
+    -webkit-transform: translate(20px, 15px);
+            transform: translate(20px, 15px); }
 
 .arc path {
   stroke: #fff; }
@@ -420,8 +460,8 @@ label {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 33.33%;
           flex: 1 1 33.33%;
-  padding: 20px; }
-  @media only screen and (max-width: 1200px) {
+  padding: 20px 15px; }
+  @media only screen and (max-width: 1199px) {
     .blocks__col {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 50%;
@@ -436,12 +476,50 @@ label {
       .blocks__col iframe {
         zoom: 0.8; } }
 
+@media only screen and (min-width: 1200px) {
+  .blocks__col--4 {
+    max-width: 25%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 25%;
+            flex: 1 1 25%; } }
+
+@media only screen and (min-width: 1200px) {
+  .blocks__col--5 {
+    max-width: 20%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 20%;
+            flex: 1 1 20%; } }
+
+@media only screen and (min-width: 1200px) {
+  .blocks__col--5-2 {
+    max-width: 40%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40%;
+            flex: 1 1 40%; } }
+
+@media only screen and (min-width: 1200px) {
+  .blocks__col--5-3 {
+    max-width: 60%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 60%;
+            flex: 1 1 60%; } }
+
 .blocks__col--wide {
   max-width: 66.66%;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 66.66%;
           flex: 1 1 66.66%; }
-  @media only screen and (max-width: 1200px) {
+  .blocks__col--wide.blocks__col--5 {
+    max-width: 40%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40%;
+            flex: 1 1 40%; }
+  .blocks__col--wide.blocks__col--4 {
+    max-width: 25%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 25%;
+            flex: 1 1 25%; }
+  @media only screen and (max-width: 1199px) {
     .blocks__col--wide {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 100%;
@@ -454,6 +532,31 @@ label {
   display: block;
   font-weight: 700;
   margin-bottom: 25px; }
+
+.blocks__list li {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px; }
+
+.blocks__list b {
+  font-weight: 700;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30px;
+          flex: 0 0 30px; }
+
+.blocks__list span {
+  font-size: 12px; }
+
+.blocks__radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .blocks__radio label {
+    margin-right: 25px; }
 
 .cards {
   display: -webkit-box;
@@ -469,7 +572,7 @@ label {
           flex: 1 1 16.66%;
   max-width: 16.66%;
   padding: 5px; }
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1199px) {
     .cards__col {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 33.33%;
@@ -516,7 +619,7 @@ label {
   .cards--basic .icon-table::before {
     font-size: 26px; }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1199px) {
   .cards--basic .block__content {
     text-align: left; }
   .cards--basic .cards__col {
@@ -556,6 +659,7 @@ label {
     color: #000; }
   .table-fixed-header__inner td,
   .table-fixed-header__inner th {
+    font-size: 14px;
     padding: 8px; }
 
 .tbl {
