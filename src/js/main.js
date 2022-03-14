@@ -1623,7 +1623,7 @@ getTableData();
 tabs();
 getData();
 joinPie();
-joinPie2();
+// joinPie2();
 // joinPie3();
 joinPie4();
 joinPie5();
