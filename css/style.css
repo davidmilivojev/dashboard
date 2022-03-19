@@ -61,8 +61,8 @@ iconfont Webfont
 */
 @font-face {
   font-family: 'iconfont';
-  src: url("../fonts/iconfont.eot?1647368207543");
-  src: url("../fonts/iconfont.eot?#iefix-1647368207543") format("embedded-opentype"), url("../fonts/iconfont.woff2?1647368207543") format("woff2"), url("../fonts/iconfont.woff?1647368207543") format("woff"), url("../fonts/iconfont.ttf?1647368207543") format("truetype");
+  src: url("../fonts/iconfont.eot?1647723963117");
+  src: url("../fonts/iconfont.eot?#iefix-1647723963117") format("embedded-opentype"), url("../fonts/iconfont.woff2?1647723963117") format("woff2"), url("../fonts/iconfont.woff?1647723963117") format("woff"), url("../fonts/iconfont.ttf?1647723963117") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -147,24 +147,32 @@ Glyphs list
 #graphic {
   margin-top: 30px; }
 
+#bar1 .tick text {
+  -webkit-transform: translate(-10px, 6px) rotate(-12deg);
+          transform: translate(-10px, 6px) rotate(-12deg); }
+
+#graphic .xtick .tick text {
+  -webkit-transform: translate(-10px, 6px) rotate(-12deg);
+          transform: translate(-10px, 6px) rotate(-12deg); }
+
 .ghbar .tick {
   text-anchor: start;
-  -webkit-transform: translate(20px, 295px);
-          transform: translate(20px, 295px); }
+  -webkit-transform: translate(20px, 225px);
+          transform: translate(20px, 225px); }
   .ghbar .tick line {
     stroke: #fff; }
   .ghbar .tick:nth-of-type(2) {
-    -webkit-transform: translate(20px, 225px);
-            transform: translate(20px, 225px); }
+    -webkit-transform: translate(20px, 175px);
+            transform: translate(20px, 175px); }
   .ghbar .tick:nth-of-type(3) {
-    -webkit-transform: translate(20px, 155px);
-            transform: translate(20px, 155px); }
+    -webkit-transform: translate(20px, 120px);
+            transform: translate(20px, 120px); }
   .ghbar .tick:nth-of-type(4) {
-    -webkit-transform: translate(20px, 85px);
-            transform: translate(20px, 85px); }
+    -webkit-transform: translate(20px, 65px);
+            transform: translate(20px, 65px); }
   .ghbar .tick:nth-of-type(5) {
-    -webkit-transform: translate(20px, 15px);
-            transform: translate(20px, 15px); }
+    -webkit-transform: translate(20px, 10px);
+            transform: translate(20px, 10px); }
 
 .arc path {
   stroke: #fff; }
@@ -456,6 +464,7 @@ label {
   margin-top: 20px; }
 
 .blocks__col {
+  position: relative;
   max-width: 33.33%;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 33.33%;
@@ -466,15 +475,26 @@ label {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 50%;
               flex: 1 1 50%;
-      max-width: 50%; } }
+      max-width: 50%; }
+      .blocks__col:nth-child(3) {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 100%;
+                flex: 1 1 100%;
+        max-width: 100%; } }
   @media only screen and (max-width: 767px) {
     .blocks__col {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 100%;
               flex: 1 1 100%;
-      max-width: 100%; }
+      max-width: 100%;
+      min-height: 360px;
+      overflow: hidden; }
+      .blocks__col .iframe1 {
+        zoom: 0.9; }
+      .blocks__col svg,
       .blocks__col iframe {
-        zoom: 0.8; } }
+        display: block;
+        margin: 0 auto; } }
 
 @media only screen and (min-width: 1200px) {
   .blocks__col--4 {
@@ -515,16 +535,21 @@ label {
         -ms-flex: 1 1 40%;
             flex: 1 1 40%; }
   .blocks__col--wide.blocks__col--4 {
-    max-width: 25%;
+    max-width: 50%;
     -webkit-box-flex: 1;
-        -ms-flex: 1 1 25%;
-            flex: 1 1 25%; }
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%; }
   @media only screen and (max-width: 1199px) {
     .blocks__col--wide {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 100%;
               flex: 1 1 100%;
-      max-width: 100%; } }
+      max-width: 100%; }
+      .blocks__col--wide.blocks__col--4:nth-child(3) {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 100%;
+                flex: 1 1 100%;
+        max-width: 100%; } }
 
 .blocks__title {
   font-size: 22px;
@@ -556,7 +581,9 @@ label {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
   .blocks__radio label {
-    margin-right: 25px; }
+    margin-right: 13px; }
+    .blocks__radio label input {
+      margin: 0; }
 
 .cards {
   display: -webkit-box;
