@@ -26,20 +26,30 @@
 #graphic {
 	margin-top: 30px;
 }
+#bar1 .tick {
+	text {
+		transform: translate(-10px, 6px) rotate(-12deg);
+	}
+}
+#graphic .xtick .tick {
+	text {
+		transform: translate(-10px, 6px) rotate(-12deg);
+	}
+}
 .ghbar .tick {
 	text-anchor: start;
-	transform: translate(20px, 295px);
+	transform: translate(20px, 215px);
 	line {
 		stroke: #fff;
 	}
 	&:nth-of-type(2) {
-		transform: translate(20px, 225px);
+		transform: translate(20px, 165px);
 	}
 	&:nth-of-type(3) {
-		transform: translate(20px, 155px);
+		transform: translate(20px, 115px);
 	}
 	&:nth-of-type(4) {
-		transform: translate(20px, 85px);
+		transform: translate(20px, 65px);
 	}
 	&:nth-of-type(5) {
 		transform: translate(20px, 15px);

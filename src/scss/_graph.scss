@@ -52,8 +52,8 @@
         flex: 1 1 40%;
     }
     &.blocks__col--4 {
-        max-width: 25%;
-        flex: 1 1 25%;
+        max-width: 50%;
+        flex: 1 1 50%;
     }
     @include breakpoint(tablet) {
         flex: 1 1 100%;
@@ -85,6 +85,9 @@
     display: flex;
     flex-wrap: wrap;
     label {
-        margin-right: 25px;
+        margin-right: 20px;
+        input {
+            margin: 0;
+        }
     }
 }
