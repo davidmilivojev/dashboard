@@ -38,21 +38,21 @@
 }
 .ghbar .tick {
 	text-anchor: start;
-	transform: translate(20px, 215px);
+	transform: translate(20px, 225px);
 	line {
 		stroke: #fff;
 	}
 	&:nth-of-type(2) {
-		transform: translate(20px, 165px);
+		transform: translate(20px, 175px);
 	}
 	&:nth-of-type(3) {
-		transform: translate(20px, 115px);
+		transform: translate(20px, 120px);
 	}
 	&:nth-of-type(4) {
 		transform: translate(20px, 65px);
 	}
 	&:nth-of-type(5) {
-		transform: translate(20px, 15px);
+		transform: translate(20px, 10px);
 	}
 }
 .arc {

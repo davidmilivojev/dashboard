@@ -728,7 +728,7 @@ function horizontalBar() {
 
         var svg = d3.select("#graphic"),
             width = svg.attr("width") - 20,
-            height = svg.attr("height") - 80;
+            height = svg.attr("height") - 70;
 
             svg.selectAll("g").remove();
             svg.selectAll("rect").remove();
