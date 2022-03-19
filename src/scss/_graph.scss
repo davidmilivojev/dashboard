@@ -5,18 +5,30 @@
     margin-top: 20px;
 }
 .blocks__col {
+    position: relative;
     max-width: 33.33%;
     flex: 1 1 33.33%;
     padding: 20px 15px;
     @include breakpoint(tablet) {
         flex: 1 1 50%;
         max-width: 50%;
+        &:nth-child(3) {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
     }
     @include breakpoint(phone) {
         flex: 1 1 100%;
         max-width: 100%;
+        min-height: 360px;
+        overflow: hidden;
+        .iframe1 {
+            zoom: 0.9;
+        }
+        svg,
         iframe {
-            zoom: 0.8;
+            display: block;
+            margin: 0 auto;
         }
     }
 }
@@ -58,6 +70,12 @@
     @include breakpoint(tablet) {
         flex: 1 1 100%;
         max-width: 100%;
+        &.blocks__col--4 {
+            &:nth-child(3) {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
     }
 }
 .blocks__title {
@@ -85,7 +103,7 @@
     display: flex;
     flex-wrap: wrap;
     label {
-        margin-right: 20px;
+        margin-right: 13px;
         input {
             margin: 0;
         }
