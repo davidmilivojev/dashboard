@@ -1619,6 +1619,14 @@ function getMap() {
 	});
 }
 
+function selectNice() {
+    var selectItem = document.getElementById("selectric");
+    var selectItem2 = document.getElementById("selectric2");
+    NiceSelect.bind(selectItem, {searchable: true});
+    NiceSelect.bind(selectItem2, {searchable: true});
+}
+
+selectNice();
 getMap();
 getTableData();
 tabs();

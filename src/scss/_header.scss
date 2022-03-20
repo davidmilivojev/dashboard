@@ -4,17 +4,17 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 25px;
+    .list {
+        &:not(.navigation-list) {
+            font-size: 0;
+            display: block;
+            margin: 50px auto 0;
+            text-align: center;
+        }
+    }
 }
 .navigation-list {
     font-size: 0;
-}
-.list {
-    &:not(.navigation-list) {
-        font-size: 0;
-        display: block;
-        margin: 50px auto 0;
-        text-align: center;
-    }
 }
 .list__item {
     display: inline-block;
