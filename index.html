@@ -55,9 +55,9 @@
 					<button class="tabs__button js-tab">
 						<span class="tabs__icon icon-download"></span>
 					</button>
-					<button class="tabs__button js-tab">
+					<!-- <button class="tabs__button js-tab">
 						<span class="tabs__icon icon-filter"></span>
-					</button>
+					</button> -->
 				</aside>
 				<div class="container__inner">
 					<div class="container__content js-content container__content--active">
@@ -402,20 +402,72 @@
 					</div>
 					<div class="container__content js-content">
 						<div class="selectric">
+							<!-- filter start -->
 							<div class="selectric__item">
-								<select name="cars" id="selectric">
-									<option value="volvo">Volvo</option>
-									<option value="saab">Saab</option>
-									<option value="mercedes">Mercedes</option>
-									<option value="audi">Audi</option>
+								<select class="js-select1" name="godina" id="godina">
+									<option value="godina19" selected>Godina</option>
+									<option value="godina20">2020</option>
+									<option value="godina21">2021</option>
+									<option value="godina22">2022</option>
+									<option value="godina23">2023</option>
+								</select>
+							</div>
+							<!-- filter end -->
+							<div class="selectric__item">
+								<select class="js-select2" name="institucija" id="institucija">
+									<option value="institucija1" selected>Institucija</option>
+									<option value="institucija1">institucija1</option>
+									<option value="institucija2">institucija2</option>
+									<option value="institucija3">institucija3</option>
+									<option value="institucija4">institucija4</option>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select name="cars" id="selectric2">
-									<option value="volvo">Volvo</option>
-									<option value="saab">Saab</option>
-									<option value="mercedes">Mercedes</option>
-									<option value="audi">Audi</option>
+								<select class="js-select3" name="korisnik" id="korisnik">
+									<option value="korisnik1" selected>Korisnik</option>
+									<option value="korisnik2">korisnik2</option>
+									<option value="korisnik3">korisnik3</option>
+									<option value="korisnik4">korisnik4</option>
+								</select>
+							</div>
+							<div class="selectric__item">
+								<select class="js-select4" name="tip-korisnika" id="tip-korisnika">
+									<option value="tip1" selected>Tip korsinika</option>
+									<option value="tip2">tip2</option>
+									<option value="tip3">tip3</option>
+									<option value="tip4">tip4</option>
+								</select>
+							</div>
+							<div class="selectric__item">
+								<select class="js-select5" name="osnivac" id="osnivac">
+									<option value="osnivac1" selected>Osnivac</option>
+									<option value="osnivac2">osnivac2</option>
+									<option value="osnivac3">osnivac3</option>
+									<option value="osnivac4">osnivac4</option>
+								</select>
+							</div>
+							<div class="selectric__item">
+								<select class="js-select6" name="sektor" id="sektor">
+									<option value="sektor1" selected>Sektor</option>
+									<option value="sektor2">sektor2</option>
+									<option value="sektor3">sektor3</option>
+									<option value="sektor4">sektor4</option>
+								</select>
+							</div>
+							<div class="selectric__item">
+								<select class="js-select7" name="suma" id="suma">
+									<option value="suma1" selected>Suma</option>
+									<option value="suma2">suma2</option>
+									<option value="suma3">suma3</option>
+									<option value="suma4">suma4</option>
+								</select>
+							</div>
+							<div class="selectric__item">
+								<select class="js-select8" name="region" id="region">
+									<option value="region1" selected>Region</option>
+									<option value="region2">region2</option>
+									<option value="region3">region3</option>
+									<option value="region4">region4</option>
 								</select>
 							</div>
 						</div>
@@ -480,11 +532,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="container__content js-content">
+					<!-- <div class="container__content js-content">
 						<div class="content">
 							<h2 class="title">Filter - TODO</h2>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

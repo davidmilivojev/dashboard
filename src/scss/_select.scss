@@ -232,5 +232,10 @@
     justify-content: center;
 }
 .selectric__item {
-    margin: 10px;
+    margin: 10px 5px;
+    flex: 1 1 calc(12.5% - 12px);
+    max-width: calc(12.5% - 12px);
+    .nice-select  {
+        width: 100%;
+    }
 }
