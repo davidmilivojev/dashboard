@@ -1619,10 +1619,26 @@ function getMap() {
 	});
 }
 
-// var lineItem = document.querySelectorAll('svg');
-// lineItem.forEach((arrayElement, index) => {
-//     lineItem[index].setAttribute('width', 260);
-// });
+function selectNice() {
+    var selectItem = document.querySelector('.js-select1');
+    var selectItem2 = document.querySelector('.js-select2');
+    var selectItem3 = document.querySelector('.js-select3');
+    var selectItem4 = document.querySelector('.js-select4');
+    var selectItem5 = document.querySelector('.js-select5');
+    var selectItem6 = document.querySelector('.js-select6');
+    var selectItem7 = document.querySelector('.js-select7');
+    var selectItem8 = document.querySelector('.js-select8');
+    NiceSelect.bind(selectItem, {searchable: true});
+    NiceSelect.bind(selectItem2, {searchable: true});
+    NiceSelect.bind(selectItem3, {searchable: true});
+    NiceSelect.bind(selectItem4, {searchable: true});
+    NiceSelect.bind(selectItem5, {searchable: true});
+    NiceSelect.bind(selectItem6, {searchable: true});
+    NiceSelect.bind(selectItem7, {searchable: true});
+    NiceSelect.bind(selectItem8, {searchable: true});
+}
+
+selectNice();
 getMap();
 getTableData();
 tabs();
