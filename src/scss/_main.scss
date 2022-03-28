@@ -19,6 +19,8 @@
     width: 100%;
     min-height: 600px;
     display: flex;
+    position: relative;
+    overflow: hidden;
     @include breakpoint(phone) {
         display: block;
     }

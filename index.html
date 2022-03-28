@@ -401,79 +401,74 @@
 						</div>
 					</div>
 					<div class="container__content js-content">
-						<div class="selectric">
-							<!-- filter start -->
+						<div id="filterMsg" class="content">Filteri se učitavaju. Molimo sačekajte</div>
+						<div id="selects" class="selectric">
 							<div class="selectric__item">
 								<select class="js-select1" name="godina" id="godina">
-									<option value="godina19" selected>Godina</option>
-									<option value="godina20">2020</option>
-									<option value="godina21">2021</option>
-									<option value="godina22">2022</option>
-									<option value="godina23">2023</option>
-								</select>
-							</div>
-							<!-- filter end -->
-							<div class="selectric__item">
-								<select class="js-select2" name="institucija" id="institucija">
-									<option value="institucija1" selected>Institucija</option>
-									<option value="institucija1">institucija1</option>
-									<option value="institucija2">institucija2</option>
-									<option value="institucija3">institucija3</option>
-									<option value="institucija4">institucija4</option>
+									<option value="" selected>Godina</option>
+
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select3" name="korisnik" id="korisnik">
-									<option value="korisnik1" selected>Korisnik</option>
-									<option value="korisnik2">korisnik2</option>
-									<option value="korisnik3">korisnik3</option>
-									<option value="korisnik4">korisnik4</option>
+								<select class="js-select2" name="mesto" id="mesto">
+									<option value="" selected>Mesto</option>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select4" name="tip-korisnika" id="tip-korisnika">
-									<option value="tip1" selected>Tip korsinika</option>
-									<option value="tip2">tip2</option>
-									<option value="tip3">tip3</option>
-									<option value="tip4">tip4</option>
+								<select class="js-select3" name="organ" id="organ">
+									<option value="" selected>Organ</option>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select5" name="osnivac" id="osnivac">
-									<option value="osnivac1" selected>Osnivac</option>
-									<option value="osnivac2">osnivac2</option>
-									<option value="osnivac3">osnivac3</option>
-									<option value="osnivac4">osnivac4</option>
+								<select class="js-select4" name="sektor" id="sektor">
+									<option value="" selected>Sektor</option>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select6" name="sektor" id="sektor">
-									<option value="sektor1" selected>Sektor</option>
-									<option value="sektor2">sektor2</option>
-									<option value="sektor3">sektor3</option>
-									<option value="sektor4">sektor4</option>
+								<select class="js-select5" name="tip_konkursa" id="tip_konkursa">
+									<option value="" selected>Tip konkursa</option>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select7" name="suma" id="suma">
-									<option value="suma1" selected>Suma</option>
-									<option value="suma2">suma2</option>
-									<option value="suma3">suma3</option>
-									<option value="suma4">suma4</option>
+								<select class="js-select6" name="korisnik" id="korisnik">
+									<option value="" selected>Korisnik</option>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select8" name="region" id="region">
-									<option value="region1" selected>Region</option>
-									<option value="region2">region2</option>
-									<option value="region3">region3</option>
-									<option value="region4">region4</option>
+								<select class="js-select7 niceSel" name="tip" id="tip">
+									<option value="" selected>Tip korsinika</option>
 								</select>
+							</div>
+							<div class="selectric__item">
+								<select class="js-select8" name="iznos" id="iznos">
+									<option value="" selected>Iznos</option>
+								</select>
+							</div>
+							<div class="content">
+								<button id="resetBtn" class="">Poništi filter</button>
+								<button id="exportCsv" class="">Export CSV</button>
 							</div>
 						</div>
 						<div>
 							<div class="tbl-wrap">
-								<table class="tbl"></table>
+								<div class="table-responsive">
+									<table id="projects" class="display">
+										<thead>
+											<tr>
+							                    <th>Naziv konkursa</th>
+							                    <th>Godina</th>
+							                    <th>Mesto</th>
+							                    <th>Organ</th>
+							                    <th>Sektor</th>
+							                    <th>Tip konkursa</th>
+							                    <th>Naziv projekta</th>
+							                    <th>Korisnik</th>
+							                    <th>Tip korisnika</th>
+							                    <th>Iznos</th>
+									        </tr>
+										</thead>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -547,6 +542,7 @@
 	<script src="./js/parser.js"></script>
 	<script src="./js/nice-select2.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="./js/main.js"></script>
+	<script src="./js/main.js?version=1.10" type="text/javascript" ></script>
+	<script src="./js/table.projects.js?version=1.16" type="text/javascript" ></script>
 </body>
 </html>
