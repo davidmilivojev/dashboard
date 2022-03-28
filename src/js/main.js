@@ -1620,7 +1620,7 @@ function getMap() {
 }
 
 function selectNice() {
-    var selectItem = document.querySelector('.js-select1');
+    var selectItem1 = document.querySelector('.js-select1');
     var selectItem2 = document.querySelector('.js-select2');
     var selectItem3 = document.querySelector('.js-select3');
     var selectItem4 = document.querySelector('.js-select4');
@@ -1628,7 +1628,7 @@ function selectNice() {
     var selectItem6 = document.querySelector('.js-select6');
     var selectItem7 = document.querySelector('.js-select7');
     var selectItem8 = document.querySelector('.js-select8');
-    NiceSelect.bind(selectItem, {searchable: true});
+    NiceSelect.bind(selectItem1, {searchable: true});
     NiceSelect.bind(selectItem2, {searchable: true});
     NiceSelect.bind(selectItem3, {searchable: true});
     NiceSelect.bind(selectItem4, {searchable: true});
@@ -1638,9 +1638,9 @@ function selectNice() {
     NiceSelect.bind(selectItem8, {searchable: true});
 }
 
-selectNice();
+// selectNice();
 getMap();
-getTableData();
+// getTableData();
 tabs();
 getData();
 joinPie();
