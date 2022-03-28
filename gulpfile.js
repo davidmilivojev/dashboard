@@ -83,6 +83,15 @@ gulp.task('copy-db', ()=> {
 		.pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy-php', ()=> {
+	return gulp.src('*.php')
+		.pipe(gulp.dest('dist'));
+});
+
+gulp.task('copy-lib', ()=> {
+	return gulp.src('src/lib/*.php')
+		.pipe(gulp.dest('dist/lib'));
+});
 
 // browser sync task
 gulp.task('watch', ()=> {
@@ -101,7 +110,7 @@ gulp.task('watch', ()=> {
 });
 
 //build project
-gulp.task('project-build', gulp.series('iconfont', 'copy-assets', 'copy-fonts', 'scss-lint', 'scss', 'copy-js', 'copy-html', 'copy-db'));
+gulp.task('project-build', gulp.series('iconfont', 'copy-assets', 'copy-fonts', 'copy-php', 'copy-lib', 'scss-lint', 'scss', 'copy-js', 'copy-html', 'copy-db'));
 
 //to run watch task type: gulp
 gulp.task('default', gulp.series('watch'));
