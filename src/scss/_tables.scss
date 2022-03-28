@@ -54,4 +54,21 @@
 .tbl-wrap {
 	max-height: 600px;
 	overflow: auto;
+	border-top: 1px solid $black;
+	table.dataTable tbody th,
+	table.dataTable tbody td {
+		word-break: break-word;
+		font-size: 14px;
+	}
+	table.dataTable thead th,
+	table.dataTable thead td {
+		font-size: 14px;
+	}
+	.dataTable {
+		width: 100% !important;
+	}
+}
+.dataTables_length > label,
+.dataTables_info {
+	padding: 15px;
 }

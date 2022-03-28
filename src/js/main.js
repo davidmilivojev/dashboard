@@ -118,7 +118,7 @@ function joinPie() {
 
                 for (i = 0; i < price.length; i++) {
                     d3.select(this).append("tspan")
-                        .text(numberWithCommas(price[i]) + ' din')
+                        .text(numberWithCommas(price[i]) + ' rsd')
                         .attr("dy", i ? "1.2em" : "18px")
                         .attr("x", 0)
                         .attr("text-anchor", "middle")
@@ -698,7 +698,7 @@ function joinPie5() {
 //              return y(d.budzet) - 40;
 //          })
 //          .text(function() {
-//              return [ d.budzet + " milijardi din."];
+//              return [ d.budzet + " milijardi rsd"];
 //          });
 //     }
 
@@ -780,7 +780,7 @@ function horizontalBar() {
             }
         // Scale the range of the data in the domains
         x.domain([0, d3.max(data, function(d){ return +removeDots(d.budzet); })])
-        y.domain(data.map(function(d) { return (d.nazivSektora + ' - ' + d.budzet + ' din.'); }));
+        y.domain(data.map(function(d) { return (d.nazivSektora + ' - ' + d.budzet + ' rsd'); }));
 
         // append the rectangles for the bar chart
         svg.selectAll(".barh")
@@ -790,7 +790,7 @@ function horizontalBar() {
             .attr("fill", function(d) { return color(d.budzet); })
             // .attr("x", function(d) { return x(d.budzet); })
             .attr("width", function(d) {return x(+removeDots(d.budzet)); } )
-            .attr("y", function(d) { return y((d.nazivSektora + ' - ' + d.budzet + ' din.')); })
+            .attr("y", function(d) { return y((d.nazivSektora + ' - ' + d.budzet + ' rsd')); })
             .attr("height", y.bandwidth());
 
         // add the x Axis
@@ -900,7 +900,7 @@ function animatedBar() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1012,7 +1012,7 @@ function animatedBar2() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1124,7 +1124,7 @@ function animatedBar3() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1236,7 +1236,7 @@ function animatedBar4() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1348,7 +1348,7 @@ function animatedBar5() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1603,7 +1603,7 @@ function getMap() {
         .style("stroke", "#fff")
         .on("mouseover", function(d) {
             var title = d.properties.name;
-            var price = numberWithCommas(d.properties.money) + ' din.';
+            var price = numberWithCommas(d.properties.money) + ' rsd';
             d3.select(".stat").text(title)
             d3.select(".statValue").text(price)
         });

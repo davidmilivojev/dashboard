@@ -141,7 +141,8 @@
     padding-left: 18px;
     padding-right: 29px;
     text-align: left;
-    transition: all .2s
+    transition: all .2s;
+    max-width: 136px;
 }
 
 .nice-select .option:hover,.nice-select .option.focus,.nice-select .option.selected.focus {
@@ -230,6 +231,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    .content {
+        margin: 10px auto 20px;
+    }
 }
 .selectric__item {
     margin: 10px 5px;
@@ -238,4 +242,7 @@
     .nice-select  {
         width: 100%;
     }
+}
+#filterMsg {
+    margin-bottom: 20px;
 }
