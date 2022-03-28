@@ -5,7 +5,7 @@
         {
     		case 'getDropDownLists':
                 $columns = array('godina', 'organ', 'mesto', 'korisnik', 'sektor', 'tip_konkursa', 'tip');
-                $other = array('tip', 'tip_konkursa', 'sektor');
+                //$other = array('tip', 'tip_konkursa', 'sektor');
                 $data = array();
                 foreach($columns as $column)
                 {
@@ -17,11 +17,12 @@
                         $jsonDecoded = json_decode(file_get_contents($endPoint), true);
                         $flatten = new RecursiveIteratorIterator(new RecursiveArrayIterator($jsonDecoded));
                         $obj = iterator_to_array($flatten, false);
+                        sort($obj);
                         $colTitle = str_replace('_', ' ', $column);
                         $data[$column][] = '<option value="" selected>'.strtoupper($colTitle).'</option>';
                         foreach($obj as $o)
                         {
-                            $val = in_array($column, $other)? $o[$column] : $o;
+                            //$val = in_array($column, $other)? $o[$column] : $o;
                             $data[$column][] = '<option value="'.$o.'">'.$o.'</option>';
                         }
                     }
