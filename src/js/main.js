@@ -1380,17 +1380,17 @@ function showData(db, selectItem) {
         if (!item.checked) {
             selectItem[0].checked = true;
             var setValue = selectItem[0].getAttribute('data-val');
-            valueNum.innerHTML = `<span> ${setValue} </span>`;
+            valueNum.innerHTML = `<span> ${numberWithCommas(setValue)} </span>`;
             sum = +setValue;
         }
     });
 }
-
+// numberWithCommas(setValue)
 function toggleData(selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
     var valueNum = document.querySelectorAll('.js-value-num')[idx];
     var currentSum = valueNum.querySelector('span').innerHTML;
-    var sum = +currentSum;
+    var sum = +removeDots(currentSum);
     selectItem.forEach((item, index) => {
         item.addEventListener('click', () => {
             var dataVal = item.getAttribute('data-val');
@@ -1399,7 +1399,7 @@ function toggleData(selectItem) {
             } else {
                 sum = sum - +dataVal;
             }
-            valueNum.innerHTML = `<span> ${sum} </span>`;
+            valueNum.innerHTML = `<span> ${numberWithCommas(sum)} </span>`;
         });
     });
 }
