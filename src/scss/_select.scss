@@ -246,3 +246,16 @@
 #filterMsg {
     margin-bottom: 20px;
 }
+.selectric__btn {
+    background-color: $blumine;
+    border-radius: 4px;
+    transition: 0.3s ease;
+    padding: 8px 10px;
+    color: $white;
+    border: 0;
+    margin: 0 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: $mirage;
+    }
+}
