@@ -30,15 +30,19 @@
 .block__value {
     display: block;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 28px;
     color: $mirage;
+    letter-spacing: -0.8px;
 }
 .block__controls {
     position: relative;
 }
 .block__item {
     position: relative;
+    label {
+        letter-spacing: -1.2px;
+    }
 }
 .block__checkbox {
     position: relative;
