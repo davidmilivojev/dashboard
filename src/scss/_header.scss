@@ -4,6 +4,9 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 25px;
+}
+.list-holder,
+.header {
     .list {
         &:not(.navigation-list) {
             font-size: 0;
