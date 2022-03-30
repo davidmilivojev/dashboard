@@ -4,7 +4,7 @@
     	switch ($_POST['action']) 
         {
     		case 'getDropDownLists':
-                $columns = array('godina', 'organ', 'mesto', 'korisnik', 'sektor', 'tip_konkursa', 'tip');
+                $columns = array('godina', 'organ', 'mesto', 'korisnik', 'sektor', 'maticni', 'tip');
                 //$other = array('tip', 'tip_konkursa', 'sektor');
                 $data = array();
                 foreach($columns as $column)

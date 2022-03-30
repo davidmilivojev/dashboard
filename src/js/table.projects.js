@@ -17,7 +17,7 @@
                     d.mesto = $('#mesto').val();
                     d.organ = $('#organ').val();
                     d.sektor = $('#sektor').val();
-                    d.tip_konkursa = $('#tip_konkursa').val();
+                    d.maticni = $('#maticni').val();
                     d.korisnik = $('#korisnik').val();
                     d.tip = $('#tip').val();
                     d.iznos = $('#iznos').val();
@@ -41,16 +41,16 @@
                 	"data": "sektor"
                 },
                 {
-                	"data": "tip_konkursa"
+                    "data": "naziv"
                 },
                 {
-                	"data": "naziv"
-                },
-                {
-                	"data": "korisnik"
-                },
+                    "data": "korisnik"
+                },                            
                 {
                 	"data": "tip"
+                },
+                {
+                    "data": "maticni"
                 },
                 {
                     "data": "iznos",
@@ -60,7 +60,7 @@
             ]        
         });
         //apply filter on table projects
-        $('#godina,#organ,#mesto,#sektor,#tip_konkursa,#tip,#iznos,#korisnik ').on('change', function(){
+        $('#godina,#organ,#mesto,#sektor,#maticni,#tip,#iznos,#korisnik ').on('change', function(){
         	table.ajax.reload();
         })
         //export to CSV
@@ -69,7 +69,7 @@
             var mesto = $('#mesto').val();
             var organ = $('#organ').val();
             var sektor = $('#sektor').val();
-            var tip_konkursa = $('#tip_konkursa').val();
+            var maticni = $('#maticni').val();
             var korisnik = $('#korisnik').val();
             var tip = $('#tip').val();
             var iznos = $('#iznos').val();
@@ -78,7 +78,7 @@
                 "&mesto="+mesto+
                 "&organ="+organ+
                 "&sektor="+sektor+
-                "&tip_konkursa="+tip_konkursa+
+                "&maticni="+maticni+
                 "&korisnik="+korisnik+
                 "&tip="+tip+
                 "&iznos="+iznos;
@@ -111,7 +111,7 @@
         var instance = [];
         //search
         $('body').on('click', '#resetBtn', function(){
-        	var selects = ['godina','organ','mesto','sektor','tip_konkursa','tip','iznos','korisnik'];
+        	var selects = ['godina','organ','mesto','sektor','maticni','tip','iznos','korisnik'];
         	$.each(selects, function(key, sel) {
         		$('#'+sel).val('');
 				instance[sel].update()

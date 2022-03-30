@@ -2,7 +2,7 @@
 	$endPoint = "https://birn-baza.herokuapp.com/projekti/?limit=1000";
 
 	//apply filters to endPoint
-	$columns = array('godina','organ','mesto','sektor','tip_konkursa','tip','korisnik');
+	$columns = array('godina','organ','mesto','sektor','maticni','tip','korisnik');
 	foreach($columns as $col)
 	{
 	    if(isset($_GET[$col]) && !empty($_GET[$col])){
