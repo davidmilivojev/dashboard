@@ -90,7 +90,7 @@
             dataType: 'json',
             url: 'ajax.php',
             data: {
-                'action':'getDropDownLists'
+                action:'getDropDownLists'
             },
             success: function (response) {
 
@@ -120,5 +120,36 @@
         });
         $('#selects').hide();
         $('#filterMsg').show();
+
+        //autocomplete
+        function getAutocompleteOptions(placeholder, field)
+        {
+            var options = {
+                placeholder: placeholder,
+                url: function(search) {
+                    return "ajax.php";
+                },
+                getValue: function(element) {
+                    return element[field];
+                },
+                ajaxSettings: {
+                    dataType: "json",
+                    method: "POST",
+                    data: {
+                        dataType: "json",
+                        action: "autocomplete",
+                        column: field
+                    }
+                },
+                preparePostData: function(data) {
+                    data.search = $("#"+field).val();
+                    return data;
+                },
+                requestDelay: 400
+            };
+            return options
+        }
+        $("#korisnik").easyAutocomplete(getAutocompleteOptions("Pretraga korisnika", "korisnik"));
+        $("#maticni").easyAutocomplete(getAutocompleteOptions("Pretraga po matičnom br", "maticni"));
     } );
 }(jQuery));
