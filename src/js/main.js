@@ -1385,7 +1385,7 @@ function showData(db, selectItem) {
         }
     });
 }
-// numberWithCommas(setValue)
+
 function toggleData(selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
     var valueNum = document.querySelectorAll('.js-value-num')[idx];
@@ -1638,6 +1638,20 @@ function selectNice() {
     NiceSelect.bind(selectItem8, {searchable: true});
 }
 
+function filterAutocomplete() {
+    var options = {
+        url: "example.json",
+        placeholder: "Type country",
+        getValue: "name",
+        list: {
+          match: {
+            enabled: true
+          }
+        }
+    };
+    $("#countries").easyAutocomplete(options);
+}
+filterAutocomplete();
 // selectNice();
 getMap();
 // getTableData();
