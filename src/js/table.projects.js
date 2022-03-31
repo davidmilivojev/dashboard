@@ -141,6 +141,12 @@
                         column: field
                     }
                 },
+                list: {
+                    maxNumberOfElements: 100000,
+                    match: {
+                        enabled: true
+                    }
+                },
                 preparePostData: function(data) {
                     data.search = $("#"+field).val();
                     return data;
