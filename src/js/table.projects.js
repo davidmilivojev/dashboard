@@ -22,7 +22,7 @@
                     d.tip = $('#tip').val();
                     d.iznos = $('#iznos').val();
                 }
-            },                   
+            },
             "columns":
             [
                 {
@@ -45,7 +45,7 @@
                 },
                 {
                     "data": "korisnik"
-                },                            
+                },
                 {
                 	"data": "tip"
                 },
@@ -57,7 +57,7 @@
                     "className": 'dt-body-right',
                     render: $.fn.dataTable.render.number(',', '.', 2, '')
                 }
-            ]        
+            ]
         });
         //apply filter on table projects
         $('#godina,#organ,#mesto,#sektor,#maticni,#tip,#iznos,#korisnik ').on('change', function(){
@@ -102,7 +102,7 @@
     				instance[key] = NiceSelect.bind(document.getElementById(key), options);
 				});
 				$('#selects').show();
-				$('#filterMsg').hide();                                            
+				$('#filterMsg').hide();
             },
             error: function (response) {
                 console.log(response);
