@@ -1649,9 +1649,8 @@ function filterAutocomplete() {
           }
         }
     };
-    $("#countries").easyAutocomplete(options);
 }
-filterAutocomplete();
+//filterAutocomplete();
 // selectNice();
 getMap();
 // getTableData();

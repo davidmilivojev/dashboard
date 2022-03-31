@@ -4,7 +4,7 @@
     	switch ($_POST['action']) 
         {
     		case 'getDropDownLists':
-                $columns = array('godina', 'organ', 'mesto', 'korisnik', 'sektor', 'maticni', 'tip');
+                $columns = array('godina', 'organ', 'mesto', /*'korisnik', */'sektor', /*'maticni',*/ 'tip');
                 //$other = array('tip', 'tip_konkursa', 'sektor');
                 $data = array();
                 foreach($columns as $column)
@@ -27,24 +27,6 @@
                         }
                     }
                 }
-                /*//another end points
-                
-                foreach($other as $ep => $col)
-                {
-                    $endPoint = "https://birn-baza.herokuapp.com/$ep/";
-                    $json = file_get_contents($endPoint);
-                    if(!$json){
-                        echo "There is no connection with API: $endPoint";
-                    } else {
-                        $obj = json_decode($json, true);
-                        $colTitle = str_replace('_', ' ', $col);
-                        $data[$col][] = '<option value="" selected>'.strtoupper($colTitle).'</option>';
-                        foreach($obj as $o)
-                        {
-                            $data[$col][] = '<option value="'.$o[$col].'">'.$o[$col].'</option>';
-                        }
-                    }
-                }*/
                 //add iznos
                 $data['iznos'] = array(
                     '<option value="" selected>IZNOS</option>',
@@ -56,6 +38,19 @@
                 );
                 echo json_encode($data);
     		break;
+            case 'autocomplete':
+                $search = isset($_POST['search']) ? '?search='.$_POST['search'] : '';
+                $column = isset($_POST['column']) ? $_POST['column'] : '';
+                $endPoint = "https://birn-baza.herokuapp.com/".$column."/".$search;
+                $json = file_get_contents($endPoint);
+                if(!$json){
+                    echo "There is no connection with API: $endPoint";
+                } else {
+                    $obj = json_decode(file_get_contents($endPoint), true);
+                    sort($obj);
+                    echo json_encode($obj);
+                }            
+            break;
     	}
     }
 ?>

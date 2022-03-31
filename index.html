@@ -432,15 +432,12 @@
 									<option value="" selected>Sektor</option>
 								</select>
 							</div>
-							<div class="selectric__item">
-								<select class="js-select5" name="maticni" id="maticni">
-									<option value="" selected>Matični</option>
-								</select>
+							<!-- http://easyautocomplete.com/guide -->
+							<div class="filter-autocomplete">
+								<input id="maticni" type="text"/>
 							</div>
-							<div class="selectric__item">
-								<select class="js-select6" name="korisnik" id="korisnik">
-									<option value="" selected>Korisnik</option>
-								</select>
+							<div class="filter-autocomplete">
+								<input id="korisnik" type="text"/>
 							</div>
 							<div class="selectric__item">
 								<select class="js-select7 niceSel" name="tip" id="tip">
@@ -455,11 +452,6 @@
 							<div class="content">
 								<button id="resetBtn" class="selectric__btn" type="button">Poništi filter</button>
 								<button id="exportCsv" class="selectric__btn" type="button">Export CSV</button>
-								<div class="filter-autocomplete">
-									<!-- autocomplete -->
-									<!-- http://easyautocomplete.com/guide -->
-									<input id="countries" type="text"/>
-								</div>
 							</div>
 						</div>
 						<div>
