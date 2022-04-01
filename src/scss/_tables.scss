@@ -23,6 +23,11 @@
 		background-color: $mercury;
 		color: $black;
 	}
+	tr {
+		&:nth-child(even) {
+			background-color: $tropical-blue;
+		}
+	}
 	td,
 	th {
 		font-size: 14px;

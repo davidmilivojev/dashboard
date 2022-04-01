@@ -57,7 +57,30 @@
                     "className": 'dt-body-right',
                     render: $.fn.dataTable.render.number(',', '.', 2, '')
                 }
-            ]
+            ],
+            "language": {
+                lengthMenu: "Prikaži _MENU_ redova po strani",
+                zeroRecords: "Nema podataka",
+                info: "Strana _PAGE_ od _PAGES_",
+                infoEmpty: "Prikazano 0 do 0 od 0 redova",
+                infoFiltered: "(filtrirano od _MAX_ redova)",
+                processing:     "Pretraga podataka...",
+                search:         "Pretraga:",
+                infoFiltered:   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                infoPostFix:    "",
+                loadingRecords: "Podaci se učitavaju...",
+                emptyTable:     "Nema podataka u tabeli",
+                paginate: {
+                    first:      "Prva",
+                    previous:   "Prethodna",
+                    next:       "Sledeća",
+                    last:       "Poslednja"
+                },
+                aria: {
+                    sortAscending:  ": sortiraj uzlazno",
+                    sortDescending: ": sortiraj silazno"
+                }                
+            }
         });
         //apply filter on table projects
         $('#godina,#organ,#mesto,#sektor,#maticni,#tip,#iznos,#korisnik ').on('change', function(){
@@ -111,7 +134,8 @@
         var instance = [];
         //search
         $('body').on('click', '#resetBtn', function(){
-        	var selects = ['godina','organ','mesto','sektor','maticni','tip','iznos','korisnik'];
+        	var selects = ['godina','organ','mesto','sektor','tip','iznos'];
+            $('.filter-autocomplete-item').val('');
         	$.each(selects, function(key, sel) {
         		$('#'+sel).val('');
 				instance[sel].update()
