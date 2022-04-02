@@ -142,14 +142,16 @@
 .nice-select .option {
     cursor: pointer;
     font-weight: 400;
-    line-height: 40px;
+    line-height: 30px;
     list-style: none;
     outline: none;
     padding-left: 18px;
     padding-right: 29px;
     text-align: left;
     transition: all .2s;
-    max-width: 136px;
+    max-width: 296px;
+    font-size: 12px;
+    letter-spacing: -0.5px;
 }
 
 .nice-select .option:hover,.nice-select .option.focus,.nice-select .option.selected.focus {
@@ -244,9 +246,10 @@
 }
 .selectric__item {
     margin: 10px 5px;
-    flex: 1 1 calc(12.5% - 12px);
-    max-width: calc(12.5% - 12px);
-    .nice-select  {
+    flex: 1 1 calc(25% - 12px);
+    max-width: calc(25% - 12px);
+    .nice-select,
+    .nice-select-dropdown  {
         width: 100%;
     }
     .filter-autocomplete-item {

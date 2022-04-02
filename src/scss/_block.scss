@@ -7,6 +7,7 @@
     border-radius: 6px;
     overflow: hidden;
     border: 1px solid $mercury;
+    height: 100%;
 }
 .block__holder {
     display: flex;
@@ -37,6 +38,9 @@
 }
 .block__controls {
     position: relative;
+}
+.block__controls--hidden {
+    display: none;
 }
 .block__item {
     position: relative;
