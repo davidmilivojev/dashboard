@@ -130,3 +130,28 @@ svg {
 		font-family: $font-chart;
 	}
 }
+.legend {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 50%;
+	height: 6px;
+	transform: translateX(-50%);
+	z-index: 10;
+	border: 1px solid $black;
+	background-image: linear-gradient(to right, #fff, #C2DDF8, #5da9f1, #78A2CC, #6887A6);
+	&::before,
+	&::after {
+		position: absolute;
+		top: 6px;
+		font-size: 12px;
+	}
+	&::before {
+		content: 'min';
+		left: 0;
+	}
+	&::after {
+		content: 'max';
+		right: 0;
+	}
+}
