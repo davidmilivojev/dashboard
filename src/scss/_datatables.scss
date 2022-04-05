@@ -122,6 +122,45 @@ table.dataTable {
   /*
    * Body styles
    */
+   td {
+     .popHover {
+       position: relative;
+       display: block;
+       color: $blumine;
+       text-decoration: underline;
+       cursor: pointer;
+      .tooltip {
+        position: absolute;
+        top: 0;
+        right: 100%;
+        background-color: $white;
+        z-index: 100;
+        width: 300%;
+        min-height: 50px;
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid #404040;
+        display: none;
+      }
+      ul {
+        padding: 15px;
+      }
+      li {
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 16px;
+        color: #404040;
+      }
+      strong {
+        font-weight: 700;
+      }
+      &:hover {
+       .tooltip {
+         display: block;
+       }
+      }
+     }
+   }
 }
 table.dataTable thead th,
 table.dataTable tfoot th {

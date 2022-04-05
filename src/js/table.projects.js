@@ -44,7 +44,17 @@
                     "data": "naziv"
                 },
                 {
-                    "data": "korisnik"
+                    "data": "korisnik",
+                    "render": function(data, type, full){
+                        var moreData =
+                            '<div class="popHover" data-mb="'+full.maticni+'">'+data+
+                                '<div class="tooltip">'+
+                                    '<ul id="mb_'+full.maticni+'">'+
+                                    '</ul>'+
+                                '</div>'+
+                            '</div>';
+                        return moreData;
+                    }
                 },
                 {
                 	"data": "tip"
@@ -79,7 +89,7 @@
                 aria: {
                     sortAscending:  ": sortiraj uzlazno",
                     sortDescending: ": sortiraj silazno"
-                }                
+                }
             }
         });
         //apply filter on table projects
@@ -130,6 +140,26 @@
             error: function (response) {
                 console.log(response);
             }
+        });
+        //$( selector ).on( "mouseenter mouseleave", handlerInOut );
+        $('body').on("mouseenter",".popHover", function(){
+            var mb = $(this).attr('data-mb');
+            $('body').find('#mb_'+mb).html('<li>Podaci se učitavaju...</li>')
+            $.ajax({
+                type: "POST",
+                dataType: 'html',
+                url: 'ajax.php',
+                data: {
+                    action:'additionalData',
+                    mb: mb
+                },
+                success: function (response) {
+                    $('body').find('#mb_'+mb).html(response)
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
         });
         var instance = [];
         //search

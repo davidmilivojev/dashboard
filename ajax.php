@@ -1,7 +1,7 @@
-<?php 
+<?php
     if(isset($_POST['action']) )
     {
-    	switch ($_POST['action']) 
+    	switch ($_POST['action'])
         {
     		case 'getDropDownLists':
                 $columns = array('godina', 'organ', 'mesto', /*'korisnik', */'sektor', /*'maticni',*/ 'tip');
@@ -49,7 +49,28 @@
                     $obj = json_decode(file_get_contents($endPoint), true);
                     sort($obj);
                     echo json_encode($obj);
-                }            
+                }
+            break;
+            case 'additionalData':
+                $mb = isset($_POST['mb']) ? $_POST['mb'] : '';
+                $endPoint = "https://birn-baza.herokuapp.com/apr/?maticni=".$mb;
+                $json = file_get_contents($endPoint);
+                if(!$json){
+                    echo "There is no connection with API: $endPoint";
+                } else {
+                    $obj = json_decode(file_get_contents($endPoint), true);
+                    if( isset($obj[0]) ){
+                        $additional = array();
+                        foreach($obj[0] as $k => $v)
+                        {
+                            $additional[] = '<li><strong>'.$k.': </strong>'.$v.'</li>';
+                        }
+                        echo implode('',$additional);
+                    } else {
+                        echo "<li>Podaci nisu dostupni</li>";
+                    }
+
+                }
             break;
     	}
     }
