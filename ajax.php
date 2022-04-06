@@ -1,7 +1,7 @@
-<?php
+<?php 
     if(isset($_POST['action']) )
     {
-    	switch ($_POST['action'])
+    	switch ($_POST['action']) 
         {
     		case 'getDropDownLists':
                 $columns = array('godina', 'organ', 'mesto', /*'korisnik', */'sektor', /*'maticni',*/ 'tip');
@@ -19,7 +19,7 @@
                         $obj = iterator_to_array($flatten, false);
                         sort($obj);
                         $colTitle = str_replace('_', ' ', $column);
-                        $data[$column][] = '<option value="" selected>'.strtoupper($colTitle).'</option>';
+                        //$data[$column][] = '<option value="" selected>'.strtoupper($colTitle).'</option>';
                         foreach($obj as $o)
                         {
                             //$val = in_array($column, $other)? $o[$column] : $o;
@@ -49,7 +49,7 @@
                     $obj = json_decode(file_get_contents($endPoint), true);
                     sort($obj);
                     echo json_encode($obj);
-                }
+                }            
             break;
             case 'additionalData':
                 $mb = isset($_POST['mb']) ? $_POST['mb'] : '';
@@ -69,7 +69,7 @@
                     } else {
                         echo "<li>Podaci nisu dostupni</li>";
                     }
-
+                    
                 }
             break;
     	}

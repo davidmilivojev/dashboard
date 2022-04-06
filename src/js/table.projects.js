@@ -1,6 +1,5 @@
 (function($){
     $(document).ready(function() {
-        var JSN;
         var table = $("#projects").DataTable(
         {
             "dom":"Blfrtip",
@@ -117,6 +116,10 @@
                 "&iznos="+iznos;
             window.location.href = loc;
         })
+        $('#god').select2({
+            placeholder: 'Selektuj godinu'
+        });
+
         //get dropdown
         $.ajax({
             type: "POST",
@@ -126,16 +129,18 @@
                 action:'getDropDownLists'
             },
             success: function (response) {
+                $.each(response, function(key, value) {
+                    var select = '#'+key;
+                    $(select).html(value);
+                    $(select).select2({
+                        placeholder: key.toUpperCase(),
+                        width: '100%'
+                    });
+                    $(select).css('textTransform', 'capitalize');
+                });
 
-            	$.each(response, function(key, value) {
-            		var select = '#'+key;
-            		$(select).html(value);
-					var options = {searchable: true};
-					//populate niceSelect
-    				instance[key] = NiceSelect.bind(document.getElementById(key), options);
-				});
-				$('#selects').show();
-				$('#filterMsg').hide();
+                $('#selects').show();
+                $('#filterMsg').hide();
             },
             error: function (response) {
                 console.log(response);
@@ -167,8 +172,8 @@
         	var selects = ['godina','organ','mesto','sektor','tip','iznos'];
             $('.filter-autocomplete-item').val('');
         	$.each(selects, function(key, sel) {
-        		$('#'+sel).val('');
-				instance[sel].update()
+        		//$('#'+sel).val('');
+				$('#'+sel).val(null).trigger('change');
 			});
         	table.ajax.reload();
         });

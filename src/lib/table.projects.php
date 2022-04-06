@@ -11,7 +11,10 @@ $columnsFilter = array('godina','organ','mesto','sektor','maticni','tip','korisn
 foreach($columnsFilter as $col)
 {
     if(isset($_POST[$col]) && !empty($_POST[$col])){
-        $endPoint .= '&'.$col.'='.str_replace(' ', '%20', $_POST[$col]);
+        $string = str_replace(' ', '+', $_POST[$col]);
+        //do not implode for columns whicha are not multiple
+        $colVal = ($col !='maticni' && $col !='korisnik') ? implode(',',$string) : $string;
+        $endPoint .= '&'.$col.'='.$colVal;
     }
 }
 //prepare filter IZNOS
@@ -30,7 +33,6 @@ if(isset($_POST['iznos']) && !empty($_POST['iznos']))
 $columnsTable = array('naziv_konkursa','godina','mesto','organ','sektor','naziv','korisnik','tip','maticni','iznos');
 $sortDir = ($sort == 'asc') ? 'sort_column' : 'sort_column_reverse';
 $endPoint .= '&'.$sortDir.'='.$columnsTable[$orderCol];
-//echo"END POINT: $endPoint";
 
 $json = file_get_contents($endPoint);
 if(!$json){
