@@ -72,6 +72,7 @@ table.dataTable tbody td.dt-body-center {
 table.dataTable tbody th.dt-body-right,
 table.dataTable tbody td.dt-body-right {
   text-align: right;
+  min-width: 80px;
 }
 table.dataTable tbody th.dt-body-justify,
 table.dataTable tbody td.dt-body-justify {
