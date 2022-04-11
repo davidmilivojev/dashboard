@@ -2,17 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 6px;
     .content {
-        margin: 10px auto 20px;
+        margin: 10px auto;
     }
     @include breakpoint(phone) {
         flex-direction: column;
     }
 }
 .selectric__item {
-    margin: 10px 5px;
-    flex: 1 1 calc(25% - 12px);
-    max-width: calc(25% - 12px);
+    margin: 5px;
+    flex: 1 1 calc(33.33% - 12px);
+    max-width: calc(33.33% - 12px);
     .nice-select,
     .nice-select-dropdown  {
         width: 100%;
