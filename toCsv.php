@@ -2,7 +2,7 @@
 	$endPoint = "https://birn-baza.herokuapp.com/projekti/?limit=1000";
 
 	//apply filters to endPoint
-	$columns = array('godina','organ','mesto','sektor','maticni','tip','korisnik');
+	$columns = array('godina','organ','mesto','sektor','maticni','tip','korisnik','zastupnik');
 	foreach($columns as $col)
 	{
 	    if(isset($_GET[$col]) && !empty($_GET[$col])){
@@ -33,7 +33,8 @@
 	    	echo "Nema konekcije sa API";
 		} else {
 		    $dataDecoded = json_decode($data, true);
-		    
+		    //$res = $dataDecoded['results'];
+
 		    $DD[] = $dataDecoded['results'];
 		    //echo "next: ". $dataDecoded['next'] ."<br>";
 		    if(!empty($dataDecoded['next']) ) {
@@ -46,14 +47,27 @@
 	$DATA = getData($endPoint);
 	//flatten array 
 	$obj = array();
+	$excludeColumns = array('id','tip','konkurs','korisnik_new');
 	foreach($DATA as $k => $D)
 	{
 		foreach($D as $O){
+			foreach($excludeColumns as $ec)
+			{
+				if( isset($O[$ec]) ) unset($O[$ec]);
+			}
+			//zastupnik is array. We need to flatten it
+			$zastupnik = array();
+			if( isset($O['zastupnik']) ){
+				foreach($O['zastupnik'] as $Z){
+					$zastupnik[] = $Z['ime'];
+				}
+			}
+			$O['zastupnik'] = implode(', ',$zastupnik);
 			$obj[] = $O;
 		}
 	}
 
-    $filename = "projekti_" . date('Y-m-d') . ".csv";
+    $filename = "projekti_" . date('Y-m-d') . ".xls";
     //create a file pointer
     function array2csv(array &$array)
 	{
@@ -68,6 +82,23 @@
 		}
 		fclose($df);
 		return ob_get_clean();
+	}
+	function filterData(&$str){ 
+	    $str = preg_replace("/\t/", "\\t", $str); 
+	    $str = preg_replace("/\r?\n/", "\\n", $str); 
+	    if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"'; 
+	}
+	function array2xls($data){
+		foreach($data as $k => $row) { 
+		    if($k == 0) { 
+		        // display column names as first row 
+		        echo implode("\t", array_keys($row)) . "\n"; 
+		        $flag = true; 
+		    } 
+		    // filter data 
+		    array_walk($row, 'filterData'); 
+		    echo implode("\t", array_values($row)) . "\n"; 
+		} 
 	}
 	function download_send_headers($filename) {
 	    // disable caching
@@ -85,9 +116,10 @@
 	    //header("Content-Disposition: attachment;filename={$filename}");
 	    header("Content-Transfer-Encoding: binary");
 	    header("Content-Disposition: attachment; filename=$filename");
+
 	}
 	download_send_headers($filename);
-	echo array2csv($obj);
+	echo array2xls($obj);
 	die();
 	//echo"<pre>OBJ: ",print_r($obj),"</pre>";
  ?>                  

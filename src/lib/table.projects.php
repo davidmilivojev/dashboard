@@ -7,13 +7,13 @@ $sort = isset($_POST['order'][0]['dir'])? $_POST['order'][0]['dir'] : 0;
 $endPoint = "https://birn-baza.herokuapp.com/projekti/?limit=$length&offset=$start";
 
 //apply filters
-$columnsFilter = array('godina','organ','mesto','sektor','maticni','tip','korisnik');
+$columnsFilter = array('godina','organ','mesto','sektor','maticni','tip','korisnik','zastupnik');
 foreach($columnsFilter as $col)
 {
     if(isset($_POST[$col]) && !empty($_POST[$col])){
         $string = str_replace(' ', '+', $_POST[$col]);
         //do not implode for columns whicha are not multiple
-        $colVal = ($col !='maticni' && $col !='korisnik') ? implode(',',$string) : $string;
+        $colVal = ($col !='maticni' && $col !='korisnik' && $col != 'zastupnik') ? implode(',',$string) : $string;
         $endPoint .= '&'.$col.'='.$colVal;
     }
 }
@@ -30,7 +30,7 @@ if(isset($_POST['iznos']) && !empty($_POST['iznos']))
         $endPoint .= '&min_iznos='.$token[0].'&max_iznos='.$token[1];
     }
 }
-$columnsTable = array('naziv_konkursa','godina','mesto','organ','sektor','naziv','korisnik','tip','maticni','iznos');
+$columnsTable = array('naziv_konkursa','godina','mesto','organ','sektor','naziv','korisnik','zastupnik','tip','maticni','iznos');
 $sortDir = ($sort == 'asc') ? 'sort_column' : 'sort_column_reverse';
 $endPoint .= '&'.$sortDir.'='.$columnsTable[$orderCol];
 

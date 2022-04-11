@@ -18,6 +18,7 @@
                     d.sektor = $('#sektor').val();
                     d.maticni = $('#maticni').val();
                     d.korisnik = $('#korisnik').val();
+                    d.zastupnik = $('#zastupnik').val();
                     d.tip = $('#tip').val();
                     d.iznos = $('#iznos').val();
                 }
@@ -25,46 +26,67 @@
             "columns":
             [
                 {
-                    "data": "naziv_konkursa"
+                    "data": "naziv_konkursa",
+                    "width": "15%"
                 },
                 {
-                    "data": "godina"
+                    "data": "godina",
+                    "width": "5%"
                 },
                 {
-                    "data": "mesto"
+                    "data": "mesto",
+                    "width": "10%"
                 },
                 {
-                    "data": "organ"
+                    "data": "organ",
+                    "width": "10%"
                 },
                 {
-                	"data": "sektor"
+                	"data": "sektor",
+                    "width": "10%"
                 },
                 {
-                    "data": "naziv"
+                    "data": "naziv",
+                    "width": "10%"
                 },
                 {
                     "data": "korisnik",
                     "render": function(data, type, full){
                         var moreData =
-                            '<div class="popHover" data-mb="'+full.maticni+'">'+data+
+                            '<div class="popHover" data-mb="'+full.maticni+'" data-id="'+full.id+'">'+data+
                                 '<div class="tooltip">'+
-                                    '<ul id="mb_'+full.maticni+'">'+
+                                    '<ul id="id_'+full.id+'">'+
                                     '</ul>'+
                                 '</div>'+
                             '</div>';
                         return moreData;
-                    }
+                    },
+                    "width": "10%"
                 },
                 {
-                	"data": "tip"
+                    "data": "zastupnik",
+                    "render": function(data, type, full){
+                        var zastupnici = [];
+                        $.each(data, function(key, value) {
+                            zastupnici.push(value.ime);
+                        });
+                        return zastupnici.join(", ")
+                    },
+                    "width": "10%"
                 },
                 {
-                    "data": "maticni"
+                	"data": "tip",
+                    "width": "10%"
+                },
+                {
+                    "data": "maticni",
+                    "width": "10%"
                 },
                 {
                     "data": "iznos",
                     "className": 'dt-body-right',
-                    render: $.fn.dataTable.render.number(',', '.', 2, '')
+                    render: $.fn.dataTable.render.number(',', '.', 2, ''),
+                    "width": "10%"
                 }
             ],
             "language": {
@@ -92,7 +114,7 @@
             }
         });
         //apply filter on table projects
-        $('#godina,#organ,#mesto,#sektor,#maticni,#tip,#iznos,#korisnik ').on('change', function(){
+        $('#godina,#organ,#mesto,#sektor,#maticni,#tip,#iznos,#korisnik,#zastupnik ').on('change', function(){
         	table.ajax.reload();
         })
         //export to CSV
@@ -103,6 +125,7 @@
             var sektor = $('#sektor').val();
             var maticni = $('#maticni').val();
             var korisnik = $('#korisnik').val();
+            var zastupnik = $('#zastupnik').val();
             var tip = $('#tip').val();
             var iznos = $('#iznos').val();
             var loc = "./toCsv.php?"+
@@ -112,6 +135,7 @@
                 "&sektor="+sektor+
                 "&maticni="+maticni+
                 "&korisnik="+korisnik+
+                "&zastupnik="+zastupnik+
                 "&tip="+tip+
                 "&iznos="+iznos;
             window.location.href = loc;
@@ -149,7 +173,8 @@
         //$( selector ).on( "mouseenter mouseleave", handlerInOut );
         $('body').on("mouseenter",".popHover", function(){
             var mb = $(this).attr('data-mb');
-            $('body').find('#mb_'+mb).html('<li>Podaci se učitavaju...</li>')
+            var ID = $(this).attr('data-id');
+            $('body').find('#id_'+ID).html('<li>Podaci se učitavaju...</li>')
             $.ajax({
                 type: "POST",
                 dataType: 'html',
@@ -159,7 +184,7 @@
                     mb: mb
                 },
                 success: function (response) {
-                    $('body').find('#mb_'+mb).html(response)
+                    $('body').find('#id_'+ID).html(response)
                 },
                 error: function (response) {
                     console.log(response);
@@ -189,7 +214,8 @@
                     return "ajax.php";
                 },
                 getValue: function(element) {
-                    return element[field];
+                    var fld = (field == 'zastupnik') ? 'ime' :field;
+                    return element[fld];
                 },
                 ajaxSettings: {
                     dataType: "json",
@@ -216,5 +242,6 @@
         }
         $("#korisnik").easyAutocomplete(getAutocompleteOptions("Pretraga korisnika", "korisnik"));
         $("#maticni").easyAutocomplete(getAutocompleteOptions("Pretraga po matičnom br", "maticni"));
+        $("#zastupnik").easyAutocomplete(getAutocompleteOptions("Pretraga po zastupniku", "zastupnik"));
     } );
 }(jQuery));
