@@ -70,6 +70,11 @@
 	table.dataTable thead td {
 		font-size: 14px;
 	}
+	table.dataTable td {
+		&:nth-child(9) {
+			width: 75px;
+		}
+	}
 	.dataTable {
 		width: 100% !important;
 	}
