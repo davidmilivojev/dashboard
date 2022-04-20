@@ -106,17 +106,16 @@
 	    header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
 	    header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
 	    header("Last-Modified: {$now} GMT");
-
+	    header('Content-Encoding: UTF-8'); // will, change to UTF-8!
 	    // force download  
 	    header("Content-Type: application/force-download");
 	    header("Content-Type: application/octet-stream");
 	    header("Content-Type: application/download");
-	    header("Content-Type: application/vnd.ms-excel");
+	    header("Content-Type: application/vnd.ms-excel;charset=utf-8");
 	    // disposition / encoding on response body
 	    //header("Content-Disposition: attachment;filename={$filename}");
 	    header("Content-Transfer-Encoding: binary");
 	    header("Content-Disposition: attachment; filename=$filename");
-
 	}
 	download_send_headers($filename);
 	echo array2xls($obj);
