@@ -6,38 +6,23 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Dashboard</title>
 	<link href="./favicon.ico?v2" rel="icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Open+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-	<header class="header">
-		<nav class="navigation">
-			<ul class="navigation-list list">
-				<li class="list__item">
-					<a href=":javascript;" class="list__link">VESTI</a>
-				</li>
-				<li class="list__item">
-					<a href=":javascript;" class="list__link">ISTRAŽIVANJA</a>
-				</li>
-				<li class="list__item">
-					<a href=":javascript;" class="list__link nav--arrow">U FOKUSU</a>
-				</li>
-				<li class="list__item">
-					<a href=":javascript;" class="list__link nav--arrow">O NAMA</a>
-				</li>
-			</ul>
-		</nav>
-	</header>
 	<div class="wrapper">
 		<div class="content">
 			<h1 class="content__title">Baza podataka o javnim konkursima</h1>
-			<p class="content__about">BIRN Srbija, u patnerstvu sa Građanskim inicijativama i timom istraživača iz 17 lokalnih organizacija civilnog društva, predstvalja onlajn bazu javnih konkursa. Baza omogućava praćenje potrošnje budžetskog novca u sektorima medija i javnog informisanja, kulture i umetnosti, organiyacija civilnog društva i omladine.</p>
+			<p class="content__about">BIRN Srbija, u partnerstvu sa Građanskim inicijativama i timom istraživača iz 17 lokalnih organizacija civilnog društva, predstavlja onlajn bazu javnih konkursa. Baza omogućava praćenje potrošnje budžetskog novca u sektorima medija i javnog informisanja, kulture i umetnosti, organizacija civilnog društva i omladine.</p>
 		</div>
-		<div>
+		<div class="list-holder">
 			<ul class="list">
 				<li class="list__item"><a class="list__link" href="javascript:;">Pregled</a></li>
-				<li class="list__item"><a class="list__link" href="javascript:;">Analize i izvestaji</a></li>
-				<li class="list__item"><a class="list__link" href="javascript:;">O projektu</a></li>
+				<li class="list__item"><a class="list__link" href="https://birnsrbija.rs/javno-o-javnim-konkursima/">Nazad na izveštaj</a></li>
+				<!-- <li class="list__item"><a class="list__link" href="https://birnsrbija.rs/javno-o-javnim-konkursima/#oprojektu" target="_blank">O projektu</a></li> -->
 			</ul>
 		</div>
 	</div>
@@ -55,9 +40,9 @@
 					<button class="tabs__button js-tab">
 						<span class="tabs__icon icon-download"></span>
 					</button>
-					<!-- <button class="tabs__button js-tab">
+					<button class="tabs__button js-tab">
 						<span class="tabs__icon icon-filter"></span>
-					</button> -->
+					</button>
 				</aside>
 				<div class="container__inner">
 					<div class="container__content js-content container__content--active">
@@ -107,15 +92,15 @@
 									<div class="block__controls">
 										<label class="block__item">
 											<input class="block__checkbox js-cbx" type="checkbox" name="v1">
-											2019.
+											Ministarstva
 										</label>
 										<label class="block__item">
 											<input class="block__checkbox js-cbx" type="checkbox" name="v2">
-											2020.
+											Sekretarijati APV
 										</label>
 										<label class="block__item">
 											<input class="block__checkbox js-cbx" type="checkbox" name="v3">
-											2021.
+											Lokalne samouprave
 										</label>
 									</div>
 								</div>
@@ -133,7 +118,7 @@
 											</span>
 										</div>
 									</div>
-									<div class="block__controls">
+									<div class="block__controls block__controls--hidden">
 										<label class="block__item">
 											<input class="block__checkbox js-cbx" type="checkbox" name="v1">
 											2019.
@@ -162,7 +147,7 @@
 											</span>
 										</div>
 									</div>
-									<div class="block__controls">
+									<div class="block__controls block__controls--hidden">
 										<label class="block__item">
 											<input class="block__checkbox js-cbx" type="checkbox" name="v1">
 											2019.
@@ -239,6 +224,7 @@
 						</div>
 						<div class="blocks">
 							<div class="blocks__col blocks__col--3">
+								<span class="legend"></span>
 								<div class="chart">
 									<span class="chart__title">Potrošnja po okruzima</span>
 									<svg id="map" width="380" height="280"></svg>
@@ -278,7 +264,7 @@
 								<div class="chart">
 									<span class="chart__title">Najveći dobitnici</span>
 								</div>
-								<iframe src="https://flo.uri.sh/visualisation/7833589/embed?auto=1" frameborder="0" width="380" height="340"></iframe>
+								<iframe src="https://flo.uri.sh/visualisation/9189152/embed?auto=1" frameborder="0" width="380" height="340"></iframe>
 							</div>
 							<div class="blocks__col blocks__col--3">
 								<div class="chart">
@@ -308,7 +294,7 @@
 							</div>
 							<div class="blocks__col blocks__col--4">
 								<div class="chart">
-									<span class="chart__title">Naslov</span>
+									<span class="chart__title">Registrovane i podržane organizacije</span>
 								</div>
 								<iframe src="https://flo.uri.sh/visualisation/8999253/embed?auto=1" frameborder="0" width="280" height="380"></iframe>
 							</div>
@@ -327,64 +313,55 @@
 										<tbody>
 											<tr>
 												<td>Put do Omladinske prestonice Evrope 2019. godine - aktivnosti u 2019. godini</td>
-												<td>Omladinski savez udruženja Novi Sad Omladinska prestonica Evrope - OPENS</td>
+												<td>OMLADINSKA PRESTONICA EVROPE - OPENS</td>
 												<td>138.508.000</td>
 												<td>2019.</td>
 											</tr>
 											<tr>
 												<td>Podizanje kapaciteta dobrovoljnih vatrogasnih jedinica nabavkom odeće i materijalno-tehničkih sredstava radi povećanja programskih aktivnosti u oblasti zaštite i spasavanja</td>
-												<td>Vatrogasni savez Srbije</td>
+												<td>VATROGASNI SAVEZ SRBIJE</td>
 												<td>50.000.000</td>
 												<td>2020.</td>
 											</tr>
 											<tr>
 												<td>U službi javnog interesa - informisan građanin</td>
-												<td>RADIO TELEVIZIJA<br>
-													NOVI PAZAR DOO<br>
-													NOVI PAZAR
-												</td>
+												<td>RTV NOVI PAZAR</td>
 												<td>46.900.000</td>
 												<td>2021.</td>
 											</tr>
 											<tr>
 												<td>Javni interes naš prioritet</td>
-												<td>RADIO TELEVIZIJA<br>
-													NOVI PAZAR DOO<br>
-													NOVI PAZAR
-												</td>
+												<td>RTV NOVI PAZAR</td>
 												<td>45.600.000</td>
 												<td>2019.</td>
 											</tr>
 											<tr>
 												<td>Građani i javni interes na prvom mestu</td>
-												<td>RADIO TELEVIZIJA<br>
-													NOVI PAZAR DOO<br>
-													NOVI PAZAR
-												</td>
+												<td>RTV NOVI PAZAR</td>
 												<td>45.000.000</td>
 												<td>2020.</td>
 											</tr>
 											<tr>
-												<td>Exit festival 2021 </td>
+												<td>Exit festival 2021</td>
 												<td>FONDACIJA EXIT</td>
 												<td>40.000.000</td>
 												<td>2021.</td>
 											</tr>
 											<tr>
-												<td>Exit festival 2020 </td>
+												<td>Exit festival 2020</td>
 												<td>FONDACIJA EXIT</td>
-												<td>3.5000.000</td>
+												<td>35.000.000</td>
 												<td>2020.</td>
 											</tr>
 											<tr>
-												<td>Nova šansa </td>
+												<td>Nova šansa</td>
 												<td>CENTAR ZA EDUKACIJU I TRANSPARENTNOST</td>
-												<td>3.005.8000</td>
+												<td>30.058.000</td>
 												<td>2021.</td>
 											</tr>
 											<tr>
 												<td>Mladi u centru</td>
-												<td>OMLADINSKI SAVEZ UDRUŽENJA NOVI SAD OMLADINSKA PRESTONICA EVROPE - OPENS</td>
+												<td>OMLADINSKA PRESTONICA EVROPE - OPENS</td>
 												<td>30.000.000</td>
 												<td>2021.</td>
 											</tr>
@@ -401,93 +378,94 @@
 						</div>
 					</div>
 					<div class="container__content js-content">
-						<div class="selectric">
-							<!-- filter start -->
-							<div class="selectric__item">
-								<select class="js-select1" name="godina" id="godina">
-									<option value="godina19" selected>Godina</option>
-									<option value="godina20">2020</option>
-									<option value="godina21">2021</option>
-									<option value="godina22">2022</option>
-									<option value="godina23">2023</option>
-								</select>
+						<div id="filterMsg">
+							<div class="loader-holder">
+								<div class="loader"></div>
+								Filteri se učitavaju. Molimo sačekajte
 							</div>
-							<!-- filter end -->
+						</div>
+						<div id="selects" class="selectric">
 							<div class="selectric__item">
-								<select class="js-select2" name="institucija" id="institucija">
-									<option value="institucija1" selected>Institucija</option>
-									<option value="institucija1">institucija1</option>
-									<option value="institucija2">institucija2</option>
-									<option value="institucija3">institucija3</option>
-									<option value="institucija4">institucija4</option>
+								<select name="godina" id="godina" multiple>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select3" name="korisnik" id="korisnik">
-									<option value="korisnik1" selected>Korisnik</option>
-									<option value="korisnik2">korisnik2</option>
-									<option value="korisnik3">korisnik3</option>
-									<option value="korisnik4">korisnik4</option>
+								<select name="mesto" id="mesto" multiple>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select4" name="tip-korisnika" id="tip-korisnika">
-									<option value="tip1" selected>Tip korsinika</option>
-									<option value="tip2">tip2</option>
-									<option value="tip3">tip3</option>
-									<option value="tip4">tip4</option>
+								<select name="organ" id="organ" multiple>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select5" name="osnivac" id="osnivac">
-									<option value="osnivac1" selected>Osnivac</option>
-									<option value="osnivac2">osnivac2</option>
-									<option value="osnivac3">osnivac3</option>
-									<option value="osnivac4">osnivac4</option>
+								<select name="sektor" id="sektor" multiple>
+								</select>
+							</div>
+							<!-- http://easyautocomplete.com/guide -->
+							<div class="selectric__item">
+								<div class="filter-autocomplete">
+									<input class="filter-autocomplete-item" id="maticni" type="text"/>
+								</div>
+							</div>
+							<div class="selectric__item">
+								<div class="filter-autocomplete">
+									<input class="filter-autocomplete-item" id="korisnik" type="text"/>
+								</div>
+							</div>
+							<div class="selectric__item">
+								<div class="filter-autocomplete">
+									<input class="filter-autocomplete-item" id="zastupnik" type="text"/>
+								</div>
+							</div>
+							<div class="selectric__item">
+								<select name="tip" id="tip" multiple>
 								</select>
 							</div>
 							<div class="selectric__item">
-								<select class="js-select6" name="sektor" id="sektor">
-									<option value="sektor1" selected>Sektor</option>
-									<option value="sektor2">sektor2</option>
-									<option value="sektor3">sektor3</option>
-									<option value="sektor4">sektor4</option>
+								<select name="iznos" id="iznos">
+									<option value="" selected>Iznos</option>
 								</select>
 							</div>
-							<div class="selectric__item">
-								<select class="js-select7" name="suma" id="suma">
-									<option value="suma1" selected>Suma</option>
-									<option value="suma2">suma2</option>
-									<option value="suma3">suma3</option>
-									<option value="suma4">suma4</option>
-								</select>
-							</div>
-							<div class="selectric__item">
-								<select class="js-select8" name="region" id="region">
-									<option value="region1" selected>Region</option>
-									<option value="region2">region2</option>
-									<option value="region3">region3</option>
-									<option value="region4">region4</option>
-								</select>
+							<div class="content">
+								<button id="resetBtn" class="selectric__btn" type="button">Poništi filter</button>
+								<button id="exportCsv" class="selectric__btn" type="button">Export Excel</button>
 							</div>
 						</div>
 						<div>
 							<div class="tbl-wrap">
-								<table class="tbl"></table>
+								<div class="table-responsive">
+									<table id="projects" class="display">
+										<thead>
+											<tr>
+							                    <th>Naziv konkursa</th>
+							                    <th>Godina</th>
+							                    <th>Mesto</th>
+							                    <th>Organ</th>
+							                    <th>Sektor</th>
+							                    <th>Naziv projekta</th>
+							                    <th>Korisnik</th>
+							                    <th>Zastupnik</th>
+							                    <th>Tip</th>
+							                    <th>Matični</th>
+							                    <th>Iznos</th>
+									        </tr>
+										</thead>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="container__content js-content">
 						<div class="content">
-							<h2 class="title">Download</h2>
+							<h2 class="title">Preuzmi</h2>
 							<div class="cards cards--basic">
 								<div class="cards__col">
 									<div class="block js-counter">
 										<div class="block__holder">
 											<div class="block__content">
-												<a class="block__title" href="cards.csv" download>
+												<a class="block__title" href="Uputstvo-za-citanje-podataka.pdf" download>
 													<span class="icon-table"></span>
-													Dashboard kartice
+													Uputstvo za čitanje podataka
 												</a>
 											</div>
 										</div>
@@ -497,9 +475,9 @@
 									<div class="block js-counter">
 										<div class="block__holder">
 											<div class="block__content">
-												<a class="block__title" href="bar.csv" download>
+												<a class="block__title" href="Analiza-podataka-o-javnim-konkursima.pdf" download>
 													<span class="icon-table"></span>
-													Potroseno po sektorima
+													Izveštaj o JLS
 												</a>
 											</div>
 										</div>
@@ -509,9 +487,9 @@
 									<div class="block js-counter">
 										<div class="block__holder">
 											<div class="block__content">
-												<a class="block__title" href="konkursi.csv" download>
+												<a class="block__title" href="Analiza-rizika-kod-sukoba-interesa_Mediji-i-OCD_Radna-verzija.pdf" download>
 													<span class="icon-table"></span>
-													Potroseno po nivoima vlasti
+													Analiza rizika kod sukoba interesa
 												</a>
 											</div>
 										</div>
@@ -521,9 +499,9 @@
 									<div class="block js-counter">
 										<div class="block__holder">
 											<div class="block__content">
-												<a class="block__title" href="projekti.csv" download>
+												<a class="block__title" href="Analiza-pravnog-okvira_Konkursno-sufinansiranje-projekata.pdf" download>
 													<span class="icon-table"></span>
-													Potroseno po projektima
+													Analiza pravnog okvira
 												</a>
 											</div>
 										</div>
@@ -532,19 +510,74 @@
 							</div>
 						</div>
 					</div>
-					<!-- <div class="container__content js-content">
+					<div class="container__content js-content">
 						<div class="content">
-							<h2 class="title">Filter - TODO</h2>
+							<h2 class="title">O PROJEKTU</h2>
+							<div class="rte">
+								<h3>Zašto ovo radimo?</h4>
+								<p>Naš cilj je da utičemo na <b>povećanje transparentnosti podataka o javnim konkursima</b>, jer upravo ovaj mehanizam, kroz koji se troše velike sume budžetskog novca, treba da obezbedi finansiranje projekata od javnog interesa. O ovoj potrošnji se <b>malo zna u javnosti</b>, jer <b>ne postoje sistematizovani i dostupni, otvoreni podaci centralizovani u jedinstvenoj bazi</b>. Takođe, ni sama konkursna procedura i dokumentacija nije dovoljno ujednačena. Sve ovo otežava analizu efekata tj. <b>da li finansirani projekti zaista doprinose javnom interesu</b> i čine naše društvo boljim za sve građane.</p>
+								<br>
+								<h3>Koje probleme želimo da rešimo?</h4>
+								<p>Izradom ove do sada najobimnije baze podataka o javnim konkursima želimo da podstaknemo državne organe da <b>objavljuju podatke o javnoj potrošnji u otvorenom formatu</b>, jer će to olakšati analizu celokupnog procesa i njegovih efekata. Otvaranjem ovih podataka lakše će moći da se uoče bilo kakve nepravilnosti, kao i dobre prakse, olakšaće se evaluacija završenih projekata, a sve zajedno to će doprineti <b>boljem planiranju narednih ciklusa javnih konkursa.</b></p>
+								<p>Želimo da javni konkursi, kao glavni izvor finansiranja lokalnih medija, organizacija civilnog društva, kao i onih koje se bave kulturom i omladinom, budu <b>transparentniji, fer i jednako dostupni za sve učesnike</b> kao i da odgovaranju na realne potrebe građana.</p>
+								<p>Želimo da <b>ujednačimo konkursnu proceduru i dokumentaciju</b> tako da ona bude jedinstvena bez obzira da li govorimo o konkursima u sektoru medija i informisanja, kulture i umetnosti, omladine ili organizacija civilnog društva.</p>
+								<p>Svi naši predlozi za unapređenje javnih konkursa naslanjaće se na <b>rezultate analize podataka iz istraživanja</b>, koje sprovodimo na uzorku 169 jedinica lokalne samourave, 12 sekretarijata Autonomne Pokrajine Vojvodine i 21 ministarstvu Republike Srbije.</p>
+								<p>Projekat “Javno o javnim konkursima” partnerski sprovode Balkanska istraživačka mreža - BIRN Srbija i Građanske inicijative, uz finansijsku pomoć Britanske ambasade u Beogradu i predviđeno je da traje do aprila 2022. godine.</p>
+								<br>
+								<h3>Ko smo mi?</h3>
+								<p>Projekat “Javno o javnim konkursima” okupio je tim posvećenih profesionalaca, koji imaju dugogodišnje iskustvo u praćenju javnih konkursa u različitim sektorima.</p>
+								<p>Članovi našeg istraživačkog tima su:</p>
+								<ul>
+									<li>
+										17 istraživača, koji dolaze iz sektorskih lokalnih i nacionalnih organizacija, koji su zaduženi za prikupljanje dokumentacije o javnim konkursima i unos podataka u posebno dizajniranu aplikaciju:
+										<ul>
+											<li><b>Aleksandar Đekić</b>, Bečejsko udruženje mladih Bečej</li>
+											<li><b>Aleksandar Milijašević</b>, Dijalog Valjevo</li>
+											<li><b>Aleksandar Prica</b>, Duga Šabac</li>
+											<li><b>Bojana Vlajović Savić</b>, Res Publica Kragujevac</li>
+											<li><b>Borka Stojić</b>, Udruženje građana <a href="http://kuda.org/">kuda.org</a> Novi Sad</li>
+											<li><b>Dejan Dobrašinović</b>,</li>
+											<li><b>Dragan Đorđević</b>, Odbor za ljudska prava Niš</li>
+											<li><b>Dragana Matović</b>, Ekološko udruženje Avalon Vršac</li>
+											<li><b>Marijana Mitrović</b>,</li>
+											<li><b>Miroslav Tamburić</b>, Forca Požega</li>
+											<li><b>Petar Đurović</b>, Tim 42 Leskovac</li>
+											<li><b>Sead Biberović</b>, Urban In Novi Pazar</li>
+											<li><b>Slaviša Milanov</b>, Udruženje građana Emblema Dimitrovgrad</li>
+											<li><b>Smiljka Jurasović</b>, Udruženje građana Negotin-Majdanpek-Kladovo-Bor- „NE-BO“</li>
+											<li><b>Zorica Miladinović</b>, Udruženje građana Kutija Niš</li>
+											<li><b>Silvija Vukašinović</b>,</li>
+											<li><b>Goran Đukić</b>, Forca Požega</li>
+										</ul>
+									</li>
+									<li><b>Tanja Maksić</b>, BIRN Srbija na poziciji glavnog istraživača zadužena za izradu metodologije, mentorsku podršku istraživačima i pisanje finalnog izveštaja;</li>
+									<li><b>Lada Vučenović</b>, BIRN Srbija na poziciji koordinatorke istraživanja, zadužena za redovnu komunikaciju sa članovima istraživačkog tima, tehničku podršku za unos podataka, komunikaciju sa ostalim učesnicima na projektu i/ili spoljnim saradnicima i kontrolu podataka;</li>
+									<li><b>Miodrag Marković</b>, BIRN Srbija na poziciji specijaliste za konverziju dokumenata i atomatizaciju procesa unosa podataka i</li>
+									<li><b>Duško Medić</b>, Centar za održive zajednice, zadužen za obradu, analizu podataka u R programu i pisanje izveštaja.</li>
+								</ul>
+								<br>
+								<p> Uz istraživački imamo i tim koji vodi koaliciju za zagovaranje “Otvoreno o konkursima, OKO”:</p>
+								<ul>
+									<li><b>Dragoslava Barzut</b>, Građanske inicijative, na poziciji koordinatora rada koalicije, zadužena za sveukupnu koordinaciju rada koalicije i zagovaračkih aktivnosti, monitoring i izveštavanje.</li>
+									<li><b>Ivana Teofilović</b>, Građanske inicijative, na poziciji glavne istraživačice javnih politika, zadužena za istraživanje, koordinaciju i mentorstvo u okviru zagovaračke komponente projekta.</li>
+									<li><b>Tara Petrović</b>, Građanske inicijative, na poziciji istraživačice pripravnice, zadužena za podršku u istraživanju i koordinaciji rada koalicije, izradi izveštaja i zagovaračkih akcija.</li>
+								</ul>
+							</div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>
 	</main>
 	<!-- js -->
+	<script src="./js/jquery.js"></script>
+	<script src="./js/datatables.js"></script>
 	<script src="./js/parser.js"></script>
+	<script src="./js/autocomplete.js"></script>
 	<script src="./js/nice-select2.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
-	<script src="./js/main.js"></script>
+	<script src="./js/main.js?version=1.10" type="text/javascript" ></script>
+	<script src="./js/select2.min.js"></script>
+	<script src="./js/table.projects.js?version=1.42" type="text/javascript" ></script>
 </body>
 </html>

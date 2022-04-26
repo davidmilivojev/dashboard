@@ -118,7 +118,7 @@ function joinPie() {
 
                 for (i = 0; i < price.length; i++) {
                     d3.select(this).append("tspan")
-                        .text(numberWithCommas(price[i]) + ' din')
+                        .text(numberWithCommas(price[i]) + ' rsd')
                         .attr("dy", i ? "1.2em" : "18px")
                         .attr("x", 0)
                         .attr("text-anchor", "middle")
@@ -698,7 +698,7 @@ function joinPie5() {
 //              return y(d.budzet) - 40;
 //          })
 //          .text(function() {
-//              return [ d.budzet + " milijardi din."];
+//              return [ d.budzet + " milijardi rsd"];
 //          });
 //     }
 
@@ -780,7 +780,7 @@ function horizontalBar() {
             }
         // Scale the range of the data in the domains
         x.domain([0, d3.max(data, function(d){ return +removeDots(d.budzet); })])
-        y.domain(data.map(function(d) { return (d.nazivSektora + ' - ' + d.budzet + ' din.'); }));
+        y.domain(data.map(function(d) { return (d.nazivSektora + ' - ' + d.budzet + ' rsd'); }));
 
         // append the rectangles for the bar chart
         svg.selectAll(".barh")
@@ -790,7 +790,7 @@ function horizontalBar() {
             .attr("fill", function(d) { return color(d.budzet); })
             // .attr("x", function(d) { return x(d.budzet); })
             .attr("width", function(d) {return x(+removeDots(d.budzet)); } )
-            .attr("y", function(d) { return y((d.nazivSektora + ' - ' + d.budzet + ' din.')); })
+            .attr("y", function(d) { return y((d.nazivSektora + ' - ' + d.budzet + ' rsd')); })
             .attr("height", y.bandwidth());
 
         // add the x Axis
@@ -900,7 +900,7 @@ function animatedBar() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1012,7 +1012,7 @@ function animatedBar2() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1124,7 +1124,7 @@ function animatedBar3() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1236,7 +1236,7 @@ function animatedBar4() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1348,7 +1348,7 @@ function animatedBar5() {
              return y(+removeDots(d.budzet)) - 40;
          })
          .text(function() {
-             return [ d.budzet + " din."];
+             return [ d.budzet + " rsd"];
          });
     }
 
@@ -1380,7 +1380,7 @@ function showData(db, selectItem) {
         if (!item.checked) {
             selectItem[0].checked = true;
             var setValue = selectItem[0].getAttribute('data-val');
-            valueNum.innerHTML = `<span> ${setValue} </span>`;
+            valueNum.innerHTML = `<span> ${numberWithCommas(setValue)} </span>`;
             sum = +setValue;
         }
     });
@@ -1390,7 +1390,7 @@ function toggleData(selectItem) {
     var idx = selectItem[0].closest('.js-counter').getAttribute('data-index');
     var valueNum = document.querySelectorAll('.js-value-num')[idx];
     var currentSum = valueNum.querySelector('span').innerHTML;
-    var sum = +currentSum;
+    var sum = +removeDots(currentSum);
     selectItem.forEach((item, index) => {
         item.addEventListener('click', () => {
             var dataVal = item.getAttribute('data-val');
@@ -1399,7 +1399,7 @@ function toggleData(selectItem) {
             } else {
                 sum = sum - +dataVal;
             }
-            valueNum.innerHTML = `<span> ${sum} </span>`;
+            valueNum.innerHTML = `<span> ${numberWithCommas(sum)} </span>`;
         });
     });
 }
@@ -1603,7 +1603,7 @@ function getMap() {
         .style("stroke", "#fff")
         .on("mouseover", function(d) {
             var title = d.properties.name;
-            var price = numberWithCommas(d.properties.money) + ' din.';
+            var price = numberWithCommas(d.properties.money) + ' rsd';
             d3.select(".stat").text(title)
             d3.select(".statValue").text(price)
         });
@@ -1620,7 +1620,7 @@ function getMap() {
 }
 
 function selectNice() {
-    var selectItem = document.querySelector('.js-select1');
+    var selectItem1 = document.querySelector('.js-select1');
     var selectItem2 = document.querySelector('.js-select2');
     var selectItem3 = document.querySelector('.js-select3');
     var selectItem4 = document.querySelector('.js-select4');
@@ -1628,7 +1628,7 @@ function selectNice() {
     var selectItem6 = document.querySelector('.js-select6');
     var selectItem7 = document.querySelector('.js-select7');
     var selectItem8 = document.querySelector('.js-select8');
-    NiceSelect.bind(selectItem, {searchable: true});
+    NiceSelect.bind(selectItem1, {searchable: true});
     NiceSelect.bind(selectItem2, {searchable: true});
     NiceSelect.bind(selectItem3, {searchable: true});
     NiceSelect.bind(selectItem4, {searchable: true});
@@ -1638,9 +1638,22 @@ function selectNice() {
     NiceSelect.bind(selectItem8, {searchable: true});
 }
 
-selectNice();
+function filterAutocomplete() {
+    var options = {
+        url: "example.json",
+        placeholder: "Type country",
+        getValue: "name",
+        list: {
+          match: {
+            enabled: true
+          }
+        }
+    };
+}
+//filterAutocomplete();
+// selectNice();
 getMap();
-getTableData();
+// getTableData();
 tabs();
 getData();
 joinPie();
